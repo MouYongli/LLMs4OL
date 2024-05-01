@@ -1,3 +1,22 @@
 pandas
+tqdm
+argparse
+pathlib
+scikit-learn
+numpy
+torch
+transformers==4.33.2
+sentencepiece
+nltk
+datasets
+openai
+openprompt
+pykeen
 matplotlib
-transformers
+plotly
+accelerate
+python-dotenv
+peft
+evaluate
+# Make sure you have git-lfs installed (https://git-lfs.com)
+#git lfs install
