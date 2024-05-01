@@ -1,10 +1,9 @@
 from transformers import T5Tokenizer, T5ForConditionalGeneration
-import os
 import torch
 
 
 def generation(prompt):
-    
+
     if torch.cuda.is_available():
         device = torch.device("cuda")
         print("Using GPU:", torch.cuda.get_device_name(2))

@@ -40,9 +40,6 @@ model = get_peft_model(model, peft_config)
 peft_p = print_number_of_trainable_model_parameters(model)
 print(f"# Trainable Parameter \nBefore: {ori_p} \nAfter: {peft_p} \nPercentage: {round(peft_p / ori_p * 100, 2)}")
 
-file_path = '../../assets/Datasets/SubTaskB.1-GeoNames/geoname_train_pairs.json' # 请确保这个路径指向JSON文件
-json_content = read_json_file(file_path)
-print(json_content)
 
 # #TODO
 # train_data = []
