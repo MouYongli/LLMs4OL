@@ -1,9 +1,20 @@
 from transformers import T5Tokenizer, T5ForConditionalGeneration
+import os
+import torch
 
 
 def generation(prompt):
-    model = T5ForConditionalGeneration.from_pretrained("../assets/LLMs/flan-t5-large", device_map="auto")
-    tokenizer = T5Tokenizer.from_pretrained("../assets/LLMs/flan-t5-large", use_fast=False, legacy=True,
+    
+    if torch.cuda.is_available():
+        device = torch.device("cuda")
+        print("Using GPU:", torch.cuda.get_device_name(2))
+    else:
+        device = torch.device("cpu")
+        print("Using CPU")
+
+    #../assets/LLMs/flan-t5-large
+    model = T5ForConditionalGeneration.from_pretrained("/home/yxpeng/DATA/flan-t5-xl").to(device)
+    tokenizer = T5Tokenizer.from_pretrained("/home/yxpeng/DATA/flan-t5-xl", use_fast=False, legacy=True,
                                             trust_remote_code=True)
 
     input_text = prompt

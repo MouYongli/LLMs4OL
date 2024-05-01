@@ -29,7 +29,8 @@ dataset = DatasetDict({'train': Dataset.from_dict({'label': label, 'text': text,
 print(dataset)
 
 #Preproce
-tokenizer = AutoTokenizer.from_pretrained("../../assets/LLMs/flan-t5-base")
+#../../assets/LLMs/flan-t5-xl
+tokenizer = AutoTokenizer.from_pretrained("/home/yxpeng/DATA/flan-t5-xl")
 data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
 tokenized_geo = dataset.map(preprocess_function, batched=True)
 
@@ -40,28 +41,40 @@ accuracy = evaluate.load("accuracy")
 id2label = {0: "incorrect", 1: "correct"}
 label2id = {"incorrect": 0, "correct": 1}
 
+
 model = AutoModelForSequenceClassification.from_pretrained(
-    "../../assets/LLMs/flan-t5-base", num_labels=2, id2label=id2label, label2id=label2id
+    "/home/yxpeng/DATA/flan-t5-xl", num_labels=2, id2label=id2label, label2id=label2id, device_map="auto"
 )
 
-ori_p = print_number_of_trainable_model_parameters(model)
-model = prepare_model_for_kbit_training(model)
-peft_config = LoraConfig(
-    r=8,
-    lora_alpha=32,
-    lora_dropout=0.1,
-    target_modules=None,  # peft will figure out the correct target_modules based on the model_type
-    bias="none",
-    task_type="CAUSAL_LM",
-)
-model = get_peft_model(model, peft_config)
-peft_p = print_number_of_trainable_model_parameters(model)
-print(f"# Trainable Parameter \nBefore: {ori_p} \nAfter: {peft_p} \nPercentage: {round(peft_p / ori_p * 100, 2)}")
+# ori_p = print_number_of_trainable_model_parameters(model)
+# model = prepare_model_for_kbit_training(model)
+
+# peft_config = LoraConfig(
+#     r=8,
+#     lora_alpha=32,
+#     lora_dropout=0.1,
+#     target_modules=None,  # peft will figure out the correct target_modules based on the model_type
+#     bias="none",
+#     task_type="SEQ_CLS",
+# )
+# #Task_Type
+# # SEQ_CLS: Text classification.
+# # SEQ_2_SEQ_LM: Sequence-to-sequence language modeling.
+# # CAUSAL_LM: Causal language modeling.
+# # TOKEN_CLS: Token classification.
+# # QUESTION_ANS: Question answering.
+# # FEATURE_EXTRACTION: Feature extraction. Provides the hidden states which can be used as embeddings or features for downstream tasks.
+
+
+
+# model = get_peft_model(model, peft_config)
+# peft_p = print_number_of_trainable_model_parameters(model)
+# print(f"# Trainable Parameter \nBefore: {ori_p} \nAfter: {peft_p} \nPercentage: {round(peft_p / ori_p * 100, 2)}")
 
 training_args = TrainingArguments(
-    output_dir="../../assets/Tuning/geo_tuning_model",
+    output_dir="../../assets/Tuning/flan-t5-xl_tuning_model",
     learning_rate=2e-5,
-    per_device_train_batch_size=4,
+    per_device_train_batch_size=64,
     num_train_epochs=10,
     weight_decay=0.01,
     save_strategy="epoch",
@@ -78,6 +91,6 @@ trainer = Trainer(
     data_collator=data_collator,
     compute_metrics=compute_metrics,
 )
-
+#CUDA_VISIBLE_DEVICES=0,1,2,3 python ./training_demo.py
 trainer.train()
 
