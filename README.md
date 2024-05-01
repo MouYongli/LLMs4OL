@@ -7,7 +7,7 @@ Large Language Models for Ontology Learning
 
 ## Python Environment Setup
 
-1. conda environment
+1. Conda Environment Set Up
 ```
 conda create --name=llms4ol python=3.10
 conda activate llms4ol
@@ -20,15 +20,21 @@ pip install -r requirements.txt
 pip install -e .
 ```
 
-2. jupyter lab and kernel
+2. Jupyter lab and kernel
 ```
 conda install -c conda-forge jupyterlab
 conda install ipykernel
 ipython kernel install --user --name=llms4ol
 ```
 
-exit and reopen a session (conda env llms4ol)
+Exit and reopen a session
 
 ```
-jupyter lab --no-browser --port=8888
+conda activate llms4ol
+jupyter lab --no-browser --port=9000
+```
+Once Jupyter Server is running remotely, open another session. Keep 2 sessions alive in background.
+
+```
+ssh -L 8889:localhost:9000 name@ip
 ```
