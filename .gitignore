@@ -160,3 +160,7 @@ cython_debug/
 #.idea/
 /src/assets/LLMs/
 /src/assets/Tuning/
+/src/assets/Datasets/SubTaskA.1-WordNet/
+/src/assets/Datasets/SubTaskA.2-GeoNames/
+/src/assets/Datasets/SubTaskA.3-UMLS/
+/src/assets/Datasets/SubTaskA.4-GO/
