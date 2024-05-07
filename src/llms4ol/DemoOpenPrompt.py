@@ -23,7 +23,7 @@ dataset = [ # For simplicity, there's only two examples
     ),
 ]
 #加载plm模型
-plm, tokenizer, model_config, WrapperClass = load_plm("t5", "../assets/LLMs/flan-t5-large")
+plm, tokenizer, model_config, WrapperClass = load_plm("bert", "bert-base-cased")
 
 
 promptTemplate = ManualTemplate(

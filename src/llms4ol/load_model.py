@@ -1,6 +1,6 @@
 from transformers import T5Tokenizer, T5ForConditionalGeneration
 import torch
-
+from transformers import AutoModel, AutoTokenizer
 
 def generation(prompt):
 
@@ -10,10 +10,13 @@ def generation(prompt):
     else:
         device = torch.device("cpu")
         print("Using CPU")
-
+    model_id = "meta-llama/Meta-Llama-3-8B"
+    model_id1 = "google/flan-t5-xl"
+    model_id2 = "microsoft/deberta-v3-large"
+    
     #../assets/LLMs/flan-t5-large
-    model = T5ForConditionalGeneration.from_pretrained("/home/yxpeng/DATA/flan-t5-xl").to(device)
-    tokenizer = T5Tokenizer.from_pretrained("/home/yxpeng/DATA/flan-t5-xl", use_fast=False, legacy=True,
+    model = AutoModel.from_pretrained(model_id2).to(device)
+    tokenizer = AutoTokenizer.from_pretrained(model_id, use_fast=False, legacy=True,
                                             trust_remote_code=True)
 
     input_text = prompt
