@@ -15,9 +15,9 @@ Large Language Models for Ontology Learning
 ├── README.md         
 ├── requirements.txt                    <- list all dependency packages required by the project
 ├── setup.py           
-└── src						            <- root directory of the repository                 
+└── src                                 <- root directory of the repository                 
     ├── assets	                        <- artifacts directory
-    │   ├── Datasets		            <- contains original/processed datasets for pretraining and fintuning
+    │   ├── Datasets                    <- contains original/processed datasets for pretraining and fintuning
     │   │   ├── ...         
     │   ├── LLMs                        <- contains pretrained LLMs 
     │   └── Tuning                      <- contains fine-tuned LLMs for each subtask
