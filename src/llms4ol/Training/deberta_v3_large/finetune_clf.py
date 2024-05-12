@@ -12,8 +12,8 @@ def preprocess_function(examples):
 
 
 model_id = "microsoft/deberta-v3-large"
-train_dataset_path = "../../../assets/Datasets/SubTaskB.1-GeoNames/geoname_train_pairs.json"
-eval_dataset_path = "../../../assets/Datasets/SubTaskB.1-GeoNames/test_dataset/hierarchy_test.json"
+train_dataset_path = "/home/yxpeng/Projects/LLMs4OL/src/assets/Datasets/SubTaskB.1-GeoNames/geoname_train_pairs.json"
+eval_dataset_path = "/home/yxpeng/Projects/LLMs4OL/src/assets/Datasets/SubTaskB.1-GeoNames/test_dataset/hierarchy_test.json"
 label, text, context = train_data_handler(train_dataset_path)
 eval_label, eval_text = eval_data_handler(eval_dataset_path)
 dataset = DatasetDict({'train': Dataset.from_dict({'label': label, 'text': text, 'context': context}),
@@ -38,7 +38,8 @@ model = AutoModelForSequenceClassification.from_pretrained(
     model_id, num_labels=2, id2label=id2label, label2id=label2id
 ).to("cuda")
 model.config.pad_token_id = model.config.eos_token_id
-# ori_p = print_number_of_trainable_model_parameters(model)
+ori_p = print_number_of_trainable_model_parameters(model)
+print(ori_p)
 # model = prepare_model_for_kbit_training(model)
 
 # peft_config = LoraConfig(

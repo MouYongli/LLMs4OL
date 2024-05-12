@@ -4,9 +4,9 @@
 #print(raw_dataset[:10])
 import mwparserfromhell
 import requests
-import json
-import os
 import re
+import g4f
+from g4f.client import Client
 
 def type_definition_from_wiki(type):
 
@@ -88,4 +88,25 @@ def type_definition_from_wiki(type):
             section_text.append(content)
     return section_text[0]
 
-print(type_definition_from_wiki("levee"))
+#print(type_definition_from_wiki("karst"))
+
+
+def GPT_Inference_For_GeoNames(names):
+    geo_list = names.split(",")
+    responses = []
+    for name in geo_list:
+        prompt_templete = f'''
+        Here is a geographical name: {name}, 
+        give the geographical information in plain text without any markdown format and reference link. 
+        Don't mention any information source, just focus on the content.
+        Make sure all provided information can be used for discovering implicit relation of other geographical term, but don't mention that in result.
+        '''
+        client = Client()
+        response = client.chat.completions.create(
+            model=g4f.models.default,
+            messages=[{"role": "user", "content": prompt_templete}],
+            provider=g4f.Provider.Bing
+        )
+        responses.append(response.choices[0].message.content)
+    return responses
+#print(GPT_Inference_For_GeoNames("karst area"))

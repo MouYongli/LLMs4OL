@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# 原始数据
+#Based on previous project results
 geonames_data = {
     "Dataset": ["GeoNames"]*13,
     "Model": [
@@ -70,6 +70,7 @@ plt.title('Dataset GeoNames F1 Score For Different Models')
 plt.legend()
 plt.tight_layout()
 plt.show()
+plt.savefig('GeoName_F1_Graph.png', dpi=300, bbox_inches='tight')
 
 # 绘制图表2
 plt.figure(figsize=(10, 6))
@@ -84,6 +85,7 @@ plt.title('Dataset UMLS F1 Score For Different Models')
 plt.legend()
 plt.tight_layout()
 plt.show()
+plt.savefig('UMLs_F1_Graph.png', dpi=300, bbox_inches='tight')
 
 # 绘制图表3
 plt.figure(figsize=(10, 6))
@@ -98,3 +100,4 @@ plt.title('Dataset schema.org F1 Score For Different Models')
 plt.legend()
 plt.tight_layout()
 plt.show()
+plt.savefig('Schema_F1_Graph.png', dpi=300, bbox_inches='tight')

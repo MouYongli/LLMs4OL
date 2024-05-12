@@ -1,6 +1,8 @@
 from pathlib import Path
 import pandas as pd
 import numpy as np
+import os
+from llms4ol.DataProcess.GeoNames.Dataset_Preprocess import *
 
 def convert_csv(path: Path, names: list = None, sep: str=',', low_memory: bool= True, header: list=None) -> pd:
     return pd.read_csv(path, sep=sep, header=header, low_memory=low_memory, names=names)
@@ -17,8 +19,8 @@ def load_df(path: Path, columns: list=None) -> pd:
     return data_frame
 
 def extract_featureCodes_to_csv():
-    raw_file = "../../assets/Datasets/SubTaskB.1-GeoNames/Additional_Data/featureCodes_en.txt"
-    processed_file = "../../assets/Datasets/SubTaskB.1-GeoNames/Additional_Data/featureCodes_en.csv"
+    raw_file = "/home/yxpeng/Projects/LLMs4OL/src/assets/Datasets/SubTaskB.1-GeoNames/Additional_Data/featureCodes_en.txt"
+    processed_file = "/home/yxpeng/Projects/LLMs4OL/src/assets/Datasets/SubTaskB.1-GeoNames/Additional_Data/featureCodes_en.csv"
     geo_df = convert_csv(raw_file,
                                  sep='\t', names=["Code", "Name", "Definition"])
     l1_mapper = {
@@ -36,8 +38,8 @@ def extract_featureCodes_to_csv():
 
 #http://www.geonames.org/export/codes.html
 def extract_geoType_to_array():
-    all_types = []
-    csv_file = "../../assets/Datasets/SubTaskB.1-GeoNames/Additional_Data/featureCodes_en.csv"
+    
+    csv_file = "/home/yxpeng/Projects/LLMs4OL/src/assets/Datasets/SubTaskB.1-GeoNames/Additional_Data/featureCodes_en.csv"
     df = load_df(csv_file)
     name_mappers = {
         "A": "country,state,region",
@@ -60,6 +62,8 @@ def extract_geoType_to_array():
     unique_supertypes = list(set(parent))
     unique_subtypes = list(set(child))
     print(f"There are {len(unique_subtypes)} sub-types and {len(unique_supertypes)} super-types in total.")
-    return parent,child
+    return unique_supertypes,unique_subtypes
 
-extract_geoType_to_array()
+def Pretrain_dataset_builder():
+    parent, child = extract_geoType_to_array()
+    #
