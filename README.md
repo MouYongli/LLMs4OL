@@ -13,21 +13,21 @@ Large Language Models for Ontology Learning
 ├── LICENSE
 ├── Makefile
 ├── README.md         
-├── requirements.txt        <- list all dependency packages required by the project
+├── requirements.txt                    <- list all dependency packages required by the project
 ├── setup.py           
-└── src						<- root directory of the repository                 
-    ├── assets	            <- artifacts directory
-    │   ├── Datasets		<- contains original/processed datasets for pretraining and fintuning
+└── src						            <- root directory of the repository                 
+    ├── assets	                        <- artifacts directory
+    │   ├── Datasets		            <- contains original/processed datasets for pretraining and fintuning
     │   │   ├── ...         
-    │   ├── LLMs            <- contains pretrained LLMs 
-    │   └── Tuning          <- contains fine-tuned LLMs for each subtask
+    │   ├── LLMs                        <- contains pretrained LLMs 
+    │   └── Tuning                      <- contains fine-tuned LLMs for each subtask
     ├── llms4ol
-    │   ├── Analyse         <- contains figures and its generating methods for analysing the results and presentations
-    │   ├── DataProcess     <- contains dataset builder for each task / data domain
+    │   ├── Analyse                     <- contains figures and its generating methods for analysing the results and presentations
+    │   ├── DataProcess                 <- contains dataset builder for each task / data domain
     │   │   ├── ...
-    │   ├── Evaluate        <- contains functions for evaluating pretrained/finetuned LLMs
+    │   ├── Evaluate                    <- contains functions for evaluating pretrained/finetuned LLMs
     │   │   ├── ...
-    │   └── Training        <- contains functions for pretraining and finetuning
+    │   └── Training                    <- contains functions for pretraining and finetuning
     │       ├── ...
 
 ```
