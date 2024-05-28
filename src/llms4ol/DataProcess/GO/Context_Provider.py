@@ -1,7 +1,3 @@
-#from datasets import load_dataset
-
-#raw_dataset = load_dataset("wikipedia", language="en", date="20240501")
-#print(raw_dataset[:10])
 import mwparserfromhell
 import requests
 import re
@@ -88,25 +84,27 @@ def type_definition_from_wiki(type):
             section_text.append(content)
     return section_text[0]
 
-#print(type_definition_from_wiki("karst"))
 
-
-def GPT_Inference_For_GeoNames(names):
-    geo_list = names.split(",")
-    responses = []
-    for name in geo_list:
-        prompt_templete = f'''
-        Here is a geographical name: {name}, 
-        give the geographical information in plain text without any markdown format and reference link. 
-        Don't mention any information source, just focus on the content.
-        Make sure all provided information can be used for discovering implicit relation of other geographical term, but don't mention that in result.
-        '''
-        client = Client()
-        response = client.chat.completions.create(
-            model=g4f.models.default,
-            messages=[{"role": "user", "content": prompt_templete}],
-            provider=g4f.Provider.Bing
-        )
-        responses.append(response.choices[0].message.content)
-    return responses
-#print(GPT_Inference_For_GeoNames("karst area"))
+def GPT_Inference_For_GO_TaskB(name):
+    prompt_template = f'''
+    "{name}" is a biological term. Provide as detailed a definition of this term as possible in plain text.
+    No link in the generated text. 
+    Make sure all provided information can be used for discovering implicit relation of other biological term, but don't mention the relation in result.
+    '''
+    client = Client()
+    response = client.chat.completions.create(
+        model=g4f.models.default,
+        messages=[{"role": "user", "content": prompt_template}]
+    )
+    result = response.choices[0].message.content
+    #remove all '*' & '#'
+    clean_text = re.sub(r'[\*\-\#]', '', result)
+    #remove all blank lines
+    clean_text = re.sub(r'\n\s*\n', ' ', clean_text)
+    #Replace remaining line breaks with spaces 
+    clean_text = re.sub(r'\n', ' ', clean_text)
+    #Remove extra spaces
+    clean_text = re.sub(r'\s{2,}', ' ', clean_text)
+    #Remove reference link
+    cleaned_text = re.sub(r'\[\[\d+\]\]\(https?://[^\)]+\)', '', cleaned_text)
+    return clean_text
