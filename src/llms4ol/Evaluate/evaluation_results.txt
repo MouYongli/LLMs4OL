@@ -1,0 +1,10 @@
+F1-score:
+roberta with finetune methode vanilla has :F1-score:0.33128457283343576
+llama3 with finetune methode vanilla has :F1-score:0.5026552804265492
+t5 with finetune methode vanilla has :F1-score:0.33496332518337407
+roberta with finetune methode lora has :F1-score:1.0
+llama3 with finetune methode lora has :F1-score:0.7531055361705195
+t5 with finetune methode lora has :F1-score:0.2251872938802477
+roberta with finetune methode full has :F1-score:0.33496332518337407
+llama3 with finetune methode full has :F1-score:0.8455829410135697
+t5 with finetune methode full has :F1-score:0.9981617087998054

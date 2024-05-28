@@ -13,12 +13,11 @@ if __name__ == "__main__":
     print("args:", args)
     #taskB_evaluater(args.model,args.kb_name,args.methode,args.peft_path,args.trained_model_path)
 
-
-    methodes = ["lora","full"]
+    methodes = ["vanilla","lora","full"]
     kb_names = ["geonames"]
     models = ["roberta","llama3","t5"]
     for methode in methodes:
         for model in models:
             for kb_name in kb_names:
                 taskB_evaluater(model,kb_name,methode)
-                
+            

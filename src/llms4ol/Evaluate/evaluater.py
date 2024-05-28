@@ -36,13 +36,13 @@ def taskB_evaluater(model_name,kb_name,finetune_methode,peft_path=None,trained_m
             peft_path = find_trained_model_path(path_pattern)
     elif finetune_methode == "full" and trained_model_path == None:
         if model_name == "roberta":
-            path_pattern = "/home/yxpeng/DATA/Checkpoints/TaskB/GeoNames/Finetune/roberta_Context_Full/checkpoint-*"
+            path_pattern = "/home/yxpeng/DATA/Checkpoints/TaskB/GeoNames/Finetune/roberta_Context_full/checkpoint-*"
             model_path = find_trained_model_path(path_pattern)
         elif model_name == "llama3":
-            path_pattern = "/home/yxpeng/DATA/Checkpoints/TaskB/GeoNames/Finetune/llama3_Context_Full/checkpoint-*"
+            path_pattern = "/home/yxpeng/DATA/Checkpoints/TaskB/GeoNames/Finetune/llama3_Context_full/checkpoint-*"
             model_path = find_trained_model_path(path_pattern)
         elif model_name == "t5":
-            path_pattern = "/home/yxpeng/DATA/Checkpoints/TaskB/GeoNames/Finetune/flan-t5-xl_Context_Full/checkpoint-*"
+            path_pattern = "/home/yxpeng/DATA/Checkpoints/TaskB/GeoNames/Finetune/flan-t5-xl_Context_full/checkpoint-*"
             model_path = find_trained_model_path(path_pattern)
 
 
@@ -50,9 +50,9 @@ def taskB_evaluater(model_name,kb_name,finetune_methode,peft_path=None,trained_m
     if kb_name == "geonames":
         test_dataset_path = root_path + "/src/assets/Datasets/SubTaskB.1-GeoNames/test_dataset/hierarchy_test.json"
     elif kb_name == "schema":
-        test_dataset_path = root_path + "/src/assets/Datasets/SubTaskB.2-Schema.org/schemaorg_train_pairs.json"
+        test_dataset_path = root_path + "/src/assets/Datasets/SubTaskB.2-Schema.org/test_dataset/hierarchy_test.json"
     elif kb_name == "umls":
-        test_dataset_path = root_path + "/src/assets/Datasets/SubTaskB.3-UMLS/umls_train_pairs.json"
+        test_dataset_path = root_path + "/src/assets/Datasets/SubTaskB.3-UMLS/test_dataset/hierarchy_test.json"
     elif kb_name == "go":
         test_dataset_path = root_path + "/src/assets/Datasets/SubTaskB.4-GO/go_train_pairs.json"
 
@@ -94,5 +94,13 @@ def taskB_evaluater(model_name,kb_name,finetune_methode,peft_path=None,trained_m
             predicted_label.append(predicted_class_id)
 
     results = EvaluationMetrics.evaluate(actual=actual_label, predicted=predicted_label)
+
+
+    file_path = root_path + '/src/llms4ol/Evaluate/evaluation_results.txt'
+    content = f"{model_name}   {finetune_methode} :"
+    content += "F1-score:"
+    content += str(results['clf-report-dict']['macro avg']['f1-score'])
+    with open(file_path, 'a', encoding='utf-8') as file:
+        file.write(content + '\n')
     print(f"{model_name} with finetune methode {finetune_methode} has :")
     print("F1-score:", results['clf-report-dict']['macro avg']['f1-score'])

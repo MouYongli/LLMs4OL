@@ -77,13 +77,10 @@ def json_data_merge(num):
         with open(file_path, 'r', encoding='utf-8') as file:
             data = json.load(file)
             for item in data:
-                text = item["term_info"]
-                cleaned_text = re.sub(r'\[\[\d+\]\]\(https?://[^\)]+\)', '', text)
-                item["term_info"] = cleaned_text
                 data_list.append(item)
     
     #remove all unnecessary info
-    parts_to_remove = ["couldn't find any","does not require","assist you further","feel free to","require further","any additional information","don't have information","I'm sorry,"]
+    parts_to_remove = ["couldn't find any","does not require","assist you further","feel free to","already in English","require further","any additional information","already an English","don't have information","I'm sorry,"]
     for item in data_list:
         info_list = item["term_info"].split(".")
         for part in parts_to_remove:
@@ -92,7 +89,8 @@ def json_data_merge(num):
                     info_list[i] = ""
                     break
         result = ".".join(info_list)
-        item["term_info"] = result
+        cleaned_text = re.sub(r'\[\[\d+\]\]\(https?://[^\)]+\)', '', result)
+        item["term_info"] = cleaned_text
     with open(merged_path, 'w', encoding='utf-8') as file:
         json.dump(data_list, file, ensure_ascii=False, indent=4)
     print(len(data_list))
@@ -149,3 +147,18 @@ def tqdm_subprocessing_module(num,data):
         json.dump(data, file, ensure_ascii=False, indent=4)
     print(f"JSON file {num} has saved! ")
 
+#For the term that GPT can't genereta useful/clear context
+def re_inference():
+    root_path = find_root_path()
+    merged_path = root_path + f'/src/assets/Datasets/SubTaskB.4-GO/processed/geoTypes_processed.json'
+    with open(merged_path, 'r', encoding='utf-8') as file:
+        data = json.load(file)
+    print(len(data))
+    candidates = []
+    for i, item in enumerate(data):
+        if len(item["term_info"] ) < 100:
+            candidates.append(item)
+            data.pop(i)
+    print(len(data))
+    print(len(candidates))
+re_inference()
