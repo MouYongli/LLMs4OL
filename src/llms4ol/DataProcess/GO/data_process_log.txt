@@ -1,0 +1,112 @@
+nohup: ignoring input
+There are in total 25372 unique type
+GOTypes Loading:   0%|          | 0/25372GOTypes Loading: 100%|██████████| 25372/25372
+Data loading finished
+Subprocess 0 Progress:   0%|          | 0/254Subprocess 1 Progress:   0%|          | 0/254Subprocess 2 Progress:   0%|          | 0/254Subprocess 3 Progress:   0%|          | 0/254Subprocess 4 Progress:   0%|          | 0/254Subprocess 5 Progress:   0%|          | 0/254Subprocess 6 Progress:   0%|          | 0/254Subprocess 7 Progress:   0%|          | 0/254Subprocess 8 Progress:   0%|          | 0/254Subprocess 9 Progress:   0%|          | 0/254Subprocess 10 Progress:   0%|          | 0/254Subprocess 11 Progress:   0%|          | 0/254Subprocess 12 Progress:   0%|          | 0/254Subprocess 13 Progress:   0%|          | 0/254Subprocess 14 Progress:   0%|          | 0/254Subprocess 15 Progress:   0%|          | 0/254Subprocess 16 Progress:   0%|          | 0/254Subprocess 17 Progress:   0%|          | 0/254Subprocess 18 Progress:   0%|          | 0/254Subprocess 19 Progress:   0%|          | 0/254Subprocess 20 Progress:   0%|          | 0/254Subprocess 21 Progress:   0%|          | 0/254Subprocess 22 Progress:   0%|          | 0/254Subprocess 23 Progress:   0%|          | 0/254Subprocess 24 Progress:   0%|          | 0/254Subprocess 25 Progress:   0%|          | 0/254Subprocess 26 Progress:   0%|          | 0/254Subprocess 27 Progress:   0%|          | 0/254Subprocess 28 Progress:   0%|          | 0/254Subprocess 29 Progress:   0%|          | 0/254Subprocess 30 Progress:   0%|          | 0/254Subprocess 31 Progress:   0%|          | 0/254Subprocess 32 Progress:   0%|          | 0/254Subprocess 33 Progress:   0%|          | 0/254Subprocess 34 Progress:   0%|          | 0/254Subprocess 35 Progress:   0%|          | 0/254Subprocess 36 Progress:   0%|          | 0/254Subprocess 37 Progress:   0%|          | 0/254Subprocess 38 Progress:   0%|          | 0/254Subprocess 39 Progress:   0%|          | 0/254Subprocess 40 Progress:   0%|          | 0/254Subprocess 41 Progress:   0%|          | 0/254Subprocess 42 Progress:   0%|          | 0/254Subprocess 43 Progress:   0%|          | 0/254Subprocess 44 Progress:   0%|          | 0/254Subprocess 45 Progress:   0%|          | 0/254Subprocess 46 Progress:   0%|          | 0/254Subprocess 47 Progress:   0%|          | 0/254Subprocess 48 Progress:   0%|          | 0/254Subprocess 49 Progress:   0%|          | 0/254Subprocess 50 Progress:   0%|          | 0/254Subprocess 51 Progress:   0%|          | 0/254Subprocess 52 Progress:   0%|          | 0/254Subprocess 53 Progress:   0%|          | 0/254Subprocess 54 Progress:   0%|          | 0/254Subprocess 55 Progress:   0%|          | 0/254Subprocess 56 Progress:   0%|          | 0/254Subprocess 57 Progress:   0%|          | 0/254Subprocess 58 Progress:   0%|          | 0/254Subprocess 59 Progress:   0%|          | 0/254Subprocess 60 Progress:   0%|          | 0/254Subprocess 61 Progress:   0%|          | 0/254Subprocess 62 Progress:   0%|          | 0/254Subprocess 63 Progress:   0%|          | 0/254Subprocess 64 Progress:   0%|          | 0/254Subprocess 65 Progress:   0%|          | 0/254Subprocess 66 Progress:   0%|          | 0/254Subprocess 67 Progress:   0%|          | 0/254Subprocess 68 Progress:   0%|          | 0/254Subprocess 69 Progress:   0%|          | 0/254Subprocess 70 Progress:   0%|          | 0/254Subprocess 71 Progress:   0%|          | 0/254Subprocess 72 Progress:   0%|          | 0/253Subprocess 73 Progress:   0%|          | 0/253Subprocess 74 Progress:   0%|          | 0/253Subprocess 75 Progress:   0%|          | 0/253Subprocess 76 Progress:   0%|          | 0/253Subprocess 77 Progress:   0%|          | 0/253Subprocess 78 Progress:   0%|          | 0/253Subprocess 79 Progress:   0%|          | 0/253Subprocess 80 Progress:   0%|          | 0/253Subprocess 81 Progress:   0%|          | 0/253Subprocess 82 Progress:   0%|          | 0/253Subprocess 83 Progress:   0%|          | 0/253Subprocess 84 Progress:   0%|          | 0/253Subprocess 85 Progress:   0%|          | 0/253Subprocess 86 Progress:   0%|          | 0/253Subprocess 87 Progress:   0%|          | 0/253Subprocess 88 Progress:   0%|          | 0/253Subprocess 89 Progress:   0%|          | 0/253Subprocess 90 Progress:   0%|          | 0/253Subprocess 91 Progress:   0%|          | 0/253Subprocess 92 Progress:   0%|          | 0/253Subprocess 93 Progress:   0%|          | 0/253Subprocess 94 Progress:   0%|          | 0/253Subprocess 95 Progress:   0%|          | 0/253Subprocess 96 Progress:   0%|          | 0/253Subprocess 97 Progress:   0%|          | 0/253Subprocess 98 Progress:   0%|          | 0/253Subprocess 99 Progress:   0%|          | 0/253Subprocess 39 Progress:  39%|███▉      | 100/254Subprocess 46 Progress:  39%|███▉      | 100/254Subprocess 90 Progress:  40%|███▉      | 100/253Subprocess 47 Progress:   0%|          | 1/254Subprocess 89 Progress:  40%|███▉      | 100/253Subprocess 44 Progress:  39%|███▉      | 100/254Subprocess 77 Progress:  40%|███▉      | 100/253Subprocess 76 Progress:  40%|███▉      | 100/253Subprocess 41 Progress:  39%|███▉      | 100/254Subprocess 31 Progress:  39%|███▉      | 100/254Subprocess 1 Progress:   0%|          | 1/254Subprocess 73 Progress:  40%|███▉      | 100/253Subprocess 54 Progress:  39%|███▉      | 100/254Subprocess 56 Progress:  39%|███▉      | 100/254Subprocess 12 Progress:  39%|███▉      | 100/254Subprocess 15 Progress:  39%|███▉      | 100/254Subprocess 24 Progress:   0%|          | 1/254Subprocess 82 Progress:  40%|███▉      | 100/253Subprocess 35 Progress:  39%|███▉      | 100/254Subprocess 93 Progress:  40%|███▉      | 100/253Subprocess 81 Progress:   0%|          | 1/253Subprocess 16 Progress:  39%|███▉      | 100/254Subprocess 98 Progress:   0%|          | 1/253Subprocess 34 Progress:  39%|███▉      | 100/254Subprocess 59 Progress:  39%|███▉      | 100/254Subprocess 9 Progress:  39%|███▉      | 100/254Subprocess 51 Progress:  39%|███▉      | 100/254Subprocess 4 Progress:  39%|███▉      | 100/254Subprocess 40 Progress:  39%|███▉      | 100/254Subprocess 58 Progress:  39%|███▉      | 100/254Subprocess 65 Progress:  39%|███▉      | 100/254Subprocess 50 Progress:   0%|          | 1/254Subprocess 37 Progress:   0%|          | 1/254Subprocess 71 Progress:   0%|          | 1/254Subprocess 10 Progress:   0%|          | 1/254Subprocess 91 Progress:  40%|███▉      | 100/253Subprocess 27 Progress:  39%|███▉      | 100/254Subprocess 36 Progress:  39%|███▉      | 100/254Subprocess 99 Progress:   0%|          | 1/253Subprocess 5 Progress:   0%|          | 1/254Subprocess 29 Progress:   0%|          | 1/254Subprocess 38 Progress:  39%|███▉      | 100/254Subprocess 92 Progress:  40%|███▉      | 100/253Subprocess 11 Progress:  39%|███▉      | 100/254Subprocess 62 Progress:   0%|          | 1/254Subprocess 72 Progress:  40%|███▉      | 100/253Subprocess 55 Progress:  39%|███▉      | 100/254Subprocess 48 Progress:   0%|          | 1/254Subprocess 52 Progress:   0%|          | 1/254Subprocess 22 Progress:   0%|          | 1/254Subprocess 43 Progress:   0%|          | 1/254Subprocess 8 Progress:  39%|███▉      | 100/254Subprocess 7 Progress:  39%|███▉      | 100/254Subprocess 86 Progress:  40%|███▉      | 100/253Subprocess 23 Progress:   0%|          | 1/254Subprocess 25 Progress:  39%|███▉      | 100/254Subprocess 28 Progress:  39%|███▉      | 100/254Subprocess 75 Progress:  40%|███▉      | 100/253Subprocess 49 Progress:  39%|███▉      | 100/254Subprocess 88 Progress:  40%|███▉      | 100/253Subprocess 26 Progress:   0%|          | 1/254Subprocess 3 Progress:  39%|███▉      | 100/254Subprocess 60 Progress:  39%|███▉      | 100/254Subprocess 53 Progress:  39%|███▉      | 100/254Subprocess 17 Progress:  39%|███▉      | 100/254Subprocess 2 Progress:  39%|███▉      | 100/254Subprocess 74 Progress:  40%|███▉      | 100/253Subprocess 32 Progress:  39%|███▉      | 100/254Subprocess 64 Progress:   0%|          | 1/254Subprocess 0 Progress:  39%|███▉      | 100/254Subprocess 20 Progress:  39%|███▉      | 100/254Subprocess 18 Progress:  39%|███▉      | 100/254Subprocess 30 Progress:  39%|███▉      | 100/254Subprocess 94 Progress:   0%|          | 1/253Subprocess 97 Progress:  40%|███▉      | 100/253Subprocess 85 Progress:  40%|███▉      | 100/253Subprocess 6 Progress:   0%|          | 1/254Subprocess 13 Progress:  39%|███▉      | 100/254Subprocess 77 Progress:  79%|███████▉  | 200/253Subprocess 39 Progress:  79%|███████▊  | 200/254Subprocess 27 Progress:  79%|███████▊  | 200/254Subprocess 90 Progress:  79%|███████▉  | 200/253Subprocess 41 Progress:  79%|███████▊  | 200/254Subprocess 44 Progress:  79%|███████▊  | 200/254Subprocess 71 Progress:  40%|███▉      | 101/254Subprocess 15 Progress:  79%|███████▊  | 200/254Subprocess 35 Progress:  79%|███████▊  | 200/254Subprocess 76 Progress:  79%|███████▉  | 200/253Subprocess 98 Progress:  40%|███▉      | 101/253Subprocess 1 Progress:  40%|███▉      | 101/254Subprocess 99 Progress:  40%|███▉      | 101/253Subprocess 50 Progress:  40%|███▉      | 101/254Subprocess 46 Progress:  79%|███████▊  | 200/254Subprocess 89 Progress:  79%|███████▉  | 200/253Subprocess 47 Progress:  40%|███▉      | 101/254Subprocess 51 Progress:  79%|███████▊  | 200/254Subprocess 25 Progress:  79%|███████▊  | 200/254Subprocess 40 Progress:  79%|███████▊  | 200/254Subprocess 56 Progress:  79%|███████▊  | 200/254Subprocess 52 Progress:  40%|███▉      | 101/254Subprocess 11 Progress:  79%|███████▊  | 200/254Subprocess 54 Progress:  79%|███████▊  | 200/254Subprocess 34 Progress:  79%|███████▊  | 200/254Subprocess 12 Progress:  79%|███████▊  | 200/254Subprocess 48 Progress:  40%|███▉      | 101/254Subprocess 5 Progress:  40%|███▉      | 101/254Subprocess 23 Progress:  40%|███▉      | 101/254Subprocess 31 Progress:  79%|███████▊  | 200/254Subprocess 38 Progress:  79%|███████▊  | 200/254Subprocess 82 Progress:  79%|███████▉  | 200/253Subprocess 93 Progress:  79%|███████▉  | 200/253Subprocess 30 Progress:  79%|███████▊  | 200/254Subprocess 59 Progress:  79%|███████▊  | 200/254Subprocess 58 Progress:  79%|███████▊  | 200/254Subprocess 24 Progress:  40%|███▉      | 101/254Subprocess 73 Progress:  79%|███████▉  | 200/253Subprocess 72 Progress:  79%|███████▉  | 200/253Subprocess 28 Progress:  79%|███████▊  | 200/254Subprocess 3 Progress:  79%|███████▊  | 200/254Subprocess 22 Progress:  40%|███▉      | 101/254Subprocess 4 Progress:  79%|███████▊  | 200/254Subprocess 88 Progress:  79%|███████▉  | 200/253Subprocess 10 Progress:  40%|███▉      | 101/254Subprocess 16 Progress:  79%|███████▊  | 200/254Subprocess 92 Progress:  79%|███████▉  | 200/253Subprocess 7 Progress:  79%|███████▊  | 200/254Subprocess 9 Progress:  79%|███████▊  | 200/254Subprocess 74 Progress:  79%|███████▉  | 200/253Subprocess 86 Progress:  79%|███████▉  | 200/253Subprocess 37 Progress:  40%|███▉      | 101/254Subprocess 81 Progress:  40%|███▉      | 101/253Subprocess 29 Progress:  40%|███▉      | 101/254Subprocess 49 Progress:  79%|███████▊  | 200/254Subprocess 65 Progress:  79%|███████▊  | 200/254Subprocess 60 Progress:  79%|███████▊  | 200/254Subprocess 85 Progress:  79%|███████▉  | 200/253Subprocess 77 Progress:  79%|███████▉  | 200/253
+JSON file 77 has saved! 
+Subprocess 91 Progress:  79%|███████▉  | 200/253Subprocess 64 Progress:  40%|███▉      | 101/254Subprocess 97 Progress:  79%|███████▉  | 200/253Subprocess 17 Progress:  79%|███████▊  | 200/254Subprocess 18 Progress:  79%|███████▊  | 200/254Subprocess 6 Progress:  40%|███▉      | 101/254Subprocess 43 Progress:  40%|███▉      | 101/254Subprocess 8 Progress:  79%|███████▊  | 200/254Subprocess 2 Progress:  79%|███████▊  | 200/254Subprocess 13 Progress:  79%|███████▊  | 200/254Subprocess 0 Progress:  79%|███████▊  | 200/254Subprocess 20 Progress:  79%|███████▊  | 200/254Subprocess 39 Progress:  79%|███████▊  | 200/254
+JSON file 39 has saved! 
+Subprocess 41 Progress:  79%|███████▊  | 200/254
+JSON file 41 has saved! 
+Subprocess 53 Progress:  79%|███████▊  | 200/254Subprocess 27 Progress:  79%|███████▊  | 200/254
+JSON file 27 has saved! 
+Subprocess 55 Progress:  79%|███████▊  | 200/254Subprocess 25 Progress:  79%|███████▊  | 200/254
+JSON file 25 has saved! 
+Subprocess 44 Progress:  79%|███████▊  | 200/254
+JSON file 44 has saved! 
+Subprocess 26 Progress:  40%|███▉      | 101/254Subprocess 15 Progress:  79%|███████▊  | 200/254
+JSON file 15 has saved! 
+Subprocess 32 Progress:  79%|███████▊  | 200/254Subprocess 90 Progress:  79%|███████▉  | 200/253
+JSON file 90 has saved! 
+Subprocess 94 Progress:  40%|███▉      | 101/253Subprocess 76 Progress:  79%|███████▉  | 200/253
+JSON file 76 has saved! 
+Subprocess 51 Progress:  79%|███████▊  | 200/254
+JSON file 51 has saved! 
+Subprocess 35 Progress:  79%|███████▊  | 200/254
+JSON file 35 has saved! 
+Subprocess 46 Progress:  79%|███████▊  | 200/254
+JSON file 46 has saved! 
+Subprocess 11 Progress:  79%|███████▊  | 200/254
+JSON file 11 has saved! 
+Subprocess 40 Progress:  79%|███████▊  | 200/254
+JSON file 40 has saved! 
+Subprocess 82 Progress:  79%|███████▉  | 200/253
+JSON file 82 has saved! 
+Subprocess 28 Progress:  79%|███████▊  | 200/254
+JSON file 28 has saved! 
+Subprocess 3 Progress:  79%|███████▊  | 200/254
+JSON file 3 has saved! 
+Subprocess 12 Progress:  79%|███████▊  | 200/254
+JSON file 12 has saved! 
+Subprocess 89 Progress:  79%|███████▉  | 200/253
+JSON file 89 has saved! 
+Subprocess 54 Progress:  79%|███████▊  | 200/254
+JSON file 54 has saved! 
+Subprocess 60 Progress:  79%|███████▊  | 200/254
+JSON file 60 has saved! 
+Subprocess 73 Progress:  79%|███████▉  | 200/253
+JSON file 73 has saved! 
+Subprocess 59 Progress:  79%|███████▊  | 200/254
+JSON file 59 has saved! 
+Subprocess 31 Progress:  79%|███████▊  | 200/254
+JSON file 31 has saved! 
+Subprocess 9 Progress:  79%|███████▊  | 200/254
+JSON file 9 has saved! 
+Subprocess 56 Progress:  79%|███████▊  | 200/254
+JSON file 56 has saved! 
+Subprocess 93 Progress:  79%|███████▉  | 200/253
+JSON file 93 has saved! 
+Subprocess 30 Progress:  79%|███████▊  | 200/254
+JSON file 30 has saved! 
+Subprocess 2 Progress:  79%|███████▊  | 200/254
+JSON file 2 has saved! 
+Subprocess 16 Progress:  79%|███████▊  | 200/254
+JSON file 16 has saved! 
+Subprocess 98 Progress:  79%|███████▉  | 201/253Subprocess 38 Progress:  79%|███████▊  | 200/254
+JSON file 38 has saved! 
+Subprocess 34 Progress:  79%|███████▊  | 200/254
+JSON file 34 has saved! 
+Subprocess 4 Progress:  79%|███████▊  | 200/254
+JSON file 4 has saved! 
+Subprocess 49 Progress:  79%|███████▊  | 200/254
+JSON file 49 has saved! 
+Subprocess 13 Progress:  79%|███████▊  | 200/254
+JSON file 13 has saved! 
+Subprocess 74 Progress:  79%|███████▉  | 200/253
+JSON file 74 has saved! 
+Subprocess 72 Progress:  79%|███████▉  | 200/253
+JSON file 72 has saved! 
+Subprocess 58 Progress:  79%|███████▊  | 200/254
+JSON file 58 has saved! 
+Subprocess 7 Progress:  79%|███████▊  | 200/254
+JSON file 7 has saved! 
+Subprocess 85 Progress:  79%|███████▉  | 200/253
+JSON file 85 has saved! 
+Subprocess 71 Progress:  79%|███████▉  | 201/254Subprocess 88 Progress:  79%|███████▉  | 200/253
+JSON file 88 has saved! 
+Subprocess 65 Progress:  79%|███████▊  | 200/254
+JSON file 65 has saved! 
+Subprocess 92 Progress:  79%|███████▉  | 200/253
+JSON file 92 has saved! 
+Subprocess 86 Progress:  79%|███████▉  | 200/253
+JSON file 86 has saved! 
+Subprocess 17 Progress:  79%|███████▊  | 200/254
+JSON file 17 has saved! 
+Subprocess 97 Progress:  79%|███████▉  | 200/253
+JSON file 97 has saved! 
+Subprocess 0 Progress:  79%|███████▊  | 200/254
+JSON file 0 has saved! 
+Subprocess 20 Progress:  79%|███████▊  | 200/254
+JSON file 20 has saved! 
+Subprocess 91 Progress:  79%|███████▉  | 200/253
+JSON file 91 has saved! 
+Subprocess 18 Progress:  79%|███████▊  | 200/254
+JSON file 18 has saved! 
+Subprocess 99 Progress:  79%|███████▉  | 201/253Subprocess 8 Progress:  79%|███████▊  | 200/254
+JSON file 8 has saved! 
+Subprocess 5 Progress:  79%|███████▉  | 201/254Subprocess 48 Progress:  79%|███████▉  | 201/254Subprocess 55 Progress:  79%|███████▊  | 200/254
+JSON file 55 has saved! 
+Subprocess 32 Progress:  79%|███████▊  | 200/254
+JSON file 32 has saved! 
+Subprocess 24 Progress:  79%|███████▉  | 201/254Subprocess 52 Progress:  79%|███████▉  | 201/254Subprocess 53 Progress:  79%|███████▊  | 200/254
+JSON file 53 has saved! 

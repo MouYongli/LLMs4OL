@@ -1,22 +1,7 @@
-from llms4ol.DataProcess.GeoNames.Context_Provider import *
+from llms4ol.DataProcess.GO.Context_Provider import *
 from llms4ol.path import find_root_path
 from tqdm import tqdm
-import json
-import re
-
-def extract_geoType_to_array():
-    root_path = find_root_path()
-    json_file = root_path + "/src/assets/Datasets/SubTaskB.1-GeoNames/geoname_train_pairs.json"
-    with open(json_file, 'r', encoding='utf-8') as file:
-        data = json.load(file)
-    super = set()
-    sub = set()
-
-    for item in data:
-        super.add(item["parent"])
-        sub.add(item["child"])
-
-    return list(super),list(sub)
+import re,json
 
 
 #Process pretrain dataset (text only)
@@ -24,7 +9,7 @@ def Pretrain_dataset_builder():
     pass
 
 def FinetuneA_dataset_builder():
-    parent, child = extract_geoType_to_array()
+    pass
     #
 
 def FintuneB_dataset_builder(json_path):
