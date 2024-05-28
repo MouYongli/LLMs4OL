@@ -108,5 +108,3 @@ def GPT_Inference_For_Schema_TaskB(name):
     #Remove reference link
     cleaned_text = re.sub(r'\[\[\d+\]\]\(https?://[^\)]+\)', '', cleaned_text)
     return clean_text
-
-print(GPT_Inference_For_Schema_TaskB("ActionStatusType"))

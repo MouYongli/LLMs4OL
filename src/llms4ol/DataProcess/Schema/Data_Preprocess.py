@@ -1,4 +1,4 @@
-from llms4ol.DataProcess.GO.Context_Provider import *
+from llms4ol.DataProcess.Schema.Context_Provider import *
 from llms4ol.path import find_root_path
 from tqdm import tqdm
 import multiprocessing,json
@@ -69,8 +69,8 @@ def preprocess_GO_Types():
 def json_data_merge(num):
     print("Now start merging all json files into one single file")
     root_path = find_root_path()
-    merged_path = root_path + f'/src/assets/Datasets/SubTaskB.4-GO/processed/geoTypes_processed.json'
-    json_files_paths = [root_path + f'/src/assets/Datasets/SubTaskB.4-GO/processed/geo_type_part{i}.json' for i in range(num)]
+    merged_path = root_path + f'/home/yxpeng/Projects/LLMs4OL/src/assets/Datasets/SubTaskB.2-Schema.org/processed/geoTypes_processed.json'
+    json_files_paths = [root_path + f'/src/assets/Datasets/SubTaskB.2-Schema.org/processed/geo_type_part{i}.json' for i in range(num)]
     data_list = []
     for file_path in json_files_paths:
         with open(file_path, 'r', encoding='utf-8') as file:
@@ -98,7 +98,7 @@ def tqdm_subprocessing_module(num,data):
     max = len(data)-1
     data_id = 0
     root_path = find_root_path()
-    output_path = root_path + f'/src/assets/Datasets/SubTaskB.4-GO/processed/GO_type_part{num}.json'
+    output_path = root_path + f'/src/assets/Datasets/SubTaskB.2-Schema.org/processed/Schema_type_part{num}.json'
     #check files in local before inference. Records Recovery
     try:
         with open(output_path, 'r', encoding='utf-8') as file:
@@ -123,7 +123,7 @@ def tqdm_subprocessing_module(num,data):
                     data_id +=1
                     continue
                 else:
-                    item['term_info'] = GPT_Inference_For_GO_TaskB(item["term"])
+                    item['term_info'] = GPT_Inference_For_Schema_TaskB(item["term"])
                     data_id += 1
                     current += 1
                     p_bar_temp += 1

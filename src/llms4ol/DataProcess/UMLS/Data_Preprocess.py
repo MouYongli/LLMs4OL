@@ -1,4 +1,4 @@
-from llms4ol.DataProcess.GO.Context_Provider import *
+from llms4ol.DataProcess.UMLS.Context_Provider import *
 from llms4ol.path import find_root_path
 from tqdm import tqdm
 import multiprocessing,json
@@ -6,11 +6,10 @@ import time
 
 def extract_UMLSType_to_array():
     root_path = find_root_path()
-    json_file = root_path + "/src/assets/Datasets/SubTaskB.4-GO/go_train_pairs.json"
+    json_file = root_path + "/src/assets/Datasets/SubTaskB.3-UMLS/go_train_pairs.json"
     with open(json_file, 'r', encoding='utf-8') as file:
         data = json.load(file)
     entities = set()
-
     for item in data:
         entities.add(item["parent"])
         entities.add(item["child"])
@@ -28,7 +27,7 @@ def extract_UMLSType_to_array():
 
 #For Finetuning
 def preprocess_GO_Types():
-    terms = extract_GOType_to_array()
+    terms = extract_UMLSType_to_array()
     print(f'There are in total {len(terms)} unique type')
     data = []
     id = 0
@@ -69,8 +68,8 @@ def preprocess_GO_Types():
 def json_data_merge(num):
     print("Now start merging all json files into one single file")
     root_path = find_root_path()
-    merged_path = root_path + f'/src/assets/Datasets/SubTaskB.4-GO/processed/geoTypes_processed.json'
-    json_files_paths = [root_path + f'/src/assets/Datasets/SubTaskB.4-GO/processed/geo_type_part{i}.json' for i in range(num)]
+    merged_path = root_path + f'/src/assets/Datasets/SubTaskB.3-UMLS/processed/geoTypes_processed.json'
+    json_files_paths = [root_path + f'/src/assets/Datasets/SubTaskB.3-UMLS/processed/geo_type_part{i}.json' for i in range(num)]
     data_list = []
     for file_path in json_files_paths:
         with open(file_path, 'r', encoding='utf-8') as file:
@@ -98,8 +97,8 @@ def tqdm_subprocessing_module(num,data):
     max = len(data)-1
     data_id = 0
     root_path = find_root_path()
-    output_path = root_path + f'/src/assets/Datasets/SubTaskB.4-GO/processed/GO_type_part{num}.json'
-    #check files in local before inference. Records Recovery
+    output_path = root_path + f'/src/assets/Datasets/SubTaskB.3-UMLS/processed/GO_type_part{num}.json'
+    #Check files in local before inference. Records Recovery
     try:
         with open(output_path, 'r', encoding='utf-8') as file:
             exist_data = json.load(file)
@@ -123,7 +122,7 @@ def tqdm_subprocessing_module(num,data):
                     data_id +=1
                     continue
                 else:
-                    item['term_info'] = GPT_Inference_For_GO_TaskB(item["term"])
+                    item['term_info'] = GPT_Inference_For_UMLS_TaskB(item["term"])
                     data_id += 1
                     current += 1
                     p_bar_temp += 1

@@ -14,7 +14,7 @@ def FinetuneA_dataset_builder():
 
 def FintuneB_dataset_builder(json_path):
     root_path = find_root_path()
-    context_filename = root_path + f'/src/assets/Datasets/SubTaskB.1-GeoNames/processed/geoTypes_processed.json'
+    context_filename = root_path + f'/src/assets/Datasets/SubTaskB.2-Schema.org/processed/geoTypes_processed.json'
     #open collected context file
     with open(context_filename, 'r', encoding='utf-8') as file:
         context_data = json.load(file)

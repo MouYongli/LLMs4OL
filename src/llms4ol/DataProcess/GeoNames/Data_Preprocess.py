@@ -22,7 +22,7 @@ def pretrain_json_data_merge(task_type,num):
             for item in data:
                 data_list.append(item)
     #Remove all unnecessary info
-    parts_to_remove = ["couldn't find any","does not require","assist you further","feel free to","already in English","require further","any additional information"]
+    parts_to_remove = ["couldn't find any","does not require","assist you further","feel free to","already in English","require further","any additional information","already an English","don't have information","I'm sorry,"]
     for item in data_list:
         info_list = item["term_info"].split(".")
         for part in parts_to_remove:

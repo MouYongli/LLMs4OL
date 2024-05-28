@@ -1,5 +1,6 @@
 import argparse
 from llms4ol.Training.trainer import *
+import multiprocessing
 
 
 if __name__ == "__main__":
