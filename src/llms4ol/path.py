@@ -15,5 +15,6 @@ def find_trained_model_path(path_pattern):
         result = file_paths[0]
     except (IndexError):
         print("Check your Model Path!")
-
+        return None
+    print(result)
     return result 

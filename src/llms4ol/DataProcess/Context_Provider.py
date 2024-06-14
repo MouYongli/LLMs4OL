@@ -1,8 +1,8 @@
-import mwparserfromhell
-import requests
 import re
 import g4f
 from g4f.client import Client
+import mwparserfromhell
+import requests
 
 def type_definition_from_wiki(type):
 
@@ -85,26 +85,78 @@ def type_definition_from_wiki(type):
     return section_text[0]
 
 
-def GPT_Inference_For_GO_TaskB(name):
-    prompt_template = f'''
-    "{name}" is a biological term. Provide as detailed a definition of this term as possible in plain text.
-    No link in the generated text. 
-    Make sure all provided information can be used for discovering implicit relation of other biological term, but don't mention the relation in result.
-    '''
+def GPT_Inference(task, num, name):
+    if task == "A":
+        if num == 1:
+            #WordNet
+            prompt_template = f'''
+            Here is a geographical name: {name}, 
+            '''
+        elif num == 2:
+            #GeoNames
+            prompt_template = f'''
+            "{name}"
+            '''
+        elif num == 3:
+            #UMLS
+            prompt_template = f'''
+            "{name}"
+            '''
+        elif num == 4:
+            #GO
+            prompt_template = f'''
+            "{name}" 
+            '''
+    elif task == "B":
+        if num == 1:
+            #GeoNames
+            prompt_template = f'''
+            Here is a geographical name: {name}, translate it into english, give the geographical information in plain text without any markdown format. 
+            No reference link in result. 
+            Make sure all provided information can be used for discovering implicit relation of other geographical term, but don't mention the relation in result.
+            '''
+        elif num == 2:
+            #Schema.org
+            prompt_template = f'''
+            "{name}" is a term from the Schema.org dataset of terms used to describe web page content and online resources. 
+            Please define this term in the context of this domain to better find the intrinsic relationship with other terms.
+            The content should be various and detailed. 
+            Just give the most relevant definitions.
+            '''
+        elif num == 3:
+            #UMLS
+            prompt_template = f'''
+            "{name}" is a medical or biological term, which is in dataset UMLS. Provide as detailed a definition of this term as possible in plain text.
+            No link in the generated text. 
+            Make sure all provided information can be used for discovering implicit relation of other medical term, but don't mention the relation in result.
+            '''
+        elif num == 4:
+            #GO
+            prompt_template = f'''
+            "{name}" is a biological term, which is in Gene Ontology. Provide as detailed a definition of this term as possible in plain text.
+            No link in the generated text. 
+            Make sure all provided information can be used for discovering implicit relation of other biological term, but don't mention the relation in result.
+            '''
+    
     client = Client()
     response = client.chat.completions.create(
-        model=g4f.models.default,
-        messages=[{"role": "user", "content": prompt_template}]
+       model=g4f.models.default,
+       messages=[{"role": "user", "content": prompt_template}]
     )
     result = response.choices[0].message.content
-    #remove all '*' & '#'
+
+    # Remove all '*' & '#'
     clean_text = re.sub(r'[\*\-\#]', '', result)
-    #remove all blank lines
+    # Remove all blank lines
     clean_text = re.sub(r'\n\s*\n', ' ', clean_text)
-    #Replace remaining line breaks with spaces 
+    # Replace remaining line breaks with spaces 
     clean_text = re.sub(r'\n', ' ', clean_text)
-    #Remove extra spaces
+    # Remove extra spaces
     clean_text = re.sub(r'\s{2,}', ' ', clean_text)
-    #Remove reference link
-    cleaned_text = re.sub(r'\[\[\d+\]\]\(https?://[^\)]+\)', '', cleaned_text)
-    return clean_text
+    # Remove reference link
+    clean_text = re.sub(r'\[\[\d+\]\]\(https?://[^\)]+\)', '', clean_text)
+    # Remove all questions in text
+    sentences = clean_text.split('.')
+    filtered_sentences = [sentence for sentence in sentences if '?'  not in sentence]
+    result = '.'.join(filtered_sentences).strip()
+    return result

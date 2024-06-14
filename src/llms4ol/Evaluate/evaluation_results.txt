@@ -1,10 +1,30 @@
-F1-score:
-roberta with finetune methode vanilla has :F1-score:0.33128457283343576
-llama3 with finetune methode vanilla has :F1-score:0.5026552804265492
-t5 with finetune methode vanilla has :F1-score:0.33496332518337407
-roberta with finetune methode lora has :F1-score:1.0
-llama3 with finetune methode lora has :F1-score:0.7531055361705195
-t5 with finetune methode lora has :F1-score:0.2251872938802477
-roberta with finetune methode full has :F1-score:0.33496332518337407
-llama3 with finetune methode full has :F1-score:0.8455829410135697
-t5 with finetune methode full has :F1-score:0.9981617087998054
+roberta with finetune methode full on KB geonames for task B with data-construction method 2  has: 
+F1-score: 
+0.44330021867793734
+Accuracy: 
+0.5266544117647058
+roberta with finetune methode full on KB geonames for task B with data-construction method 3  has: 
+F1-score: 
+0.36137651416451566
+Accuracy: 
+0.49356617647058826
+roberta with finetune methode full on KB umls for task B with data-construction method 2  has: 
+F1-score: 
+0.32948929159802304
+Accuracy: 
+0.4914004914004914
+roberta with finetune methode full on KB umls for task B with data-construction method 3  has: 
+F1-score: 
+0.5278998778998779
+Accuracy: 
+0.5331695331695332
+roberta with finetune methode full on KB schema for task B with data-construction method 2  has: 
+F1-score: 
+0.5291004166261617
+Accuracy: 
+0.5678838951310862
+roberta with finetune methode full on KB schema for task B with data-construction method 3  has: 
+F1-score: 
+0.3619918852478885
+Accuracy: 
+0.5081928838951311
