@@ -1,11 +1,46 @@
 nohup: ignoring input
 /home/yxpeng/anaconda3/envs/llms4ol/lib/python3.10/site-packages/transformers/utils/generic.py:311: UserWarning: torch.utils._pytree._register_pytree_node is deprecated. Please use torch.utils._pytree.register_pytree_node instead.
   torch.utils._pytree._register_pytree_node(
-/home/yxpeng/anaconda3/envs/llms4ol/lib/python3.10/site-packages/transformers/utils/generic.py:311: UserWarning: torch.utils._pytree._register_pytree_node is deprecated. Please use torch.utils._pytree.register_pytree_node instead.
-  torch.utils._pytree._register_pytree_node(
 args: Namespace()
-F1-score: 0.9972425888238678
-Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:07<00:21,  7.17s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:14<00:14,  7.03s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:20<00:06,  6.81s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:20<00:00,  4.19s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:20<00:00,  5.20s/it]
-F1-score: 0.8072267283688235
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:06<00:06,  6.43s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  2.94s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  3.46s/it]
-F1-score: 0.9530516670262587
+/home/yxpeng/DATA/Checkpoints/TaskB/GeoNames/Finetune/roberta_Textclf_with_Context_m2_full/checkpoint-655
+/home/yxpeng/DATA/Checkpoints/TaskB/GeoNames/Finetune/roberta_Textclf_with_Context_m2_full/checkpoint-655 None
+roberta with finetune methode full on KB geonames for task B with data-construction method 2  has :
+
+F1-score: 0.44330021867793734
+/home/yxpeng/DATA/Checkpoints/TaskB/GeoNames/Finetune/roberta_Textclf_with_Context_m3_full/checkpoint-655
+/home/yxpeng/DATA/Checkpoints/TaskB/GeoNames/Finetune/roberta_Textclf_with_Context_m3_full/checkpoint-655 None
+roberta with finetune methode full on KB geonames for task B with data-construction method 3  has :
+
+F1-score: 0.36137651416451566
+/home/yxpeng/DATA/Checkpoints/TaskB/UMLS/Finetune/roberta_Textclf_with_Context_m2_full/checkpoint-105
+/home/yxpeng/DATA/Checkpoints/TaskB/UMLS/Finetune/roberta_Textclf_with_Context_m2_full/checkpoint-105 None
+/home/yxpeng/anaconda3/envs/llms4ol/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1517: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+/home/yxpeng/anaconda3/envs/llms4ol/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1517: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+/home/yxpeng/anaconda3/envs/llms4ol/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1517: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+/home/yxpeng/anaconda3/envs/llms4ol/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1517: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+/home/yxpeng/anaconda3/envs/llms4ol/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1517: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+/home/yxpeng/anaconda3/envs/llms4ol/lib/python3.10/site-packages/sklearn/metrics/_classification.py:1517: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f"{metric.capitalize()} is", len(result))
+roberta with finetune methode full on KB umls for task B with data-construction method 2  has :
+
+F1-score: 0.32948929159802304
+/home/yxpeng/DATA/Checkpoints/TaskB/UMLS/Finetune/roberta_Textclf_with_Context_m3_full/checkpoint-105
+/home/yxpeng/DATA/Checkpoints/TaskB/UMLS/Finetune/roberta_Textclf_with_Context_m3_full/checkpoint-105 None
+roberta with finetune methode full on KB umls for task B with data-construction method 3  has :
+
+F1-score: 0.5278998778998779
+/home/yxpeng/DATA/Checkpoints/TaskB/Schema/Finetune/roberta_Textclf_with_Context_m2_full/checkpoint-1475
+/home/yxpeng/DATA/Checkpoints/TaskB/Schema/Finetune/roberta_Textclf_with_Context_m2_full/checkpoint-1475 None
+roberta with finetune methode full on KB schema for task B with data-construction method 2  has :
+
+F1-score: 0.5291004166261617
+/home/yxpeng/DATA/Checkpoints/TaskB/Schema/Finetune/roberta_Textclf_with_Context_m3_full/checkpoint-1475
+/home/yxpeng/DATA/Checkpoints/TaskB/Schema/Finetune/roberta_Textclf_with_Context_m3_full/checkpoint-1475 None
+roberta with finetune methode full on KB schema for task B with data-construction method 3  has :
+
+F1-score: 0.3619918852478885

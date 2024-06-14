@@ -1,6 +1,7 @@
 import argparse
 from llms4ol.Training.trainer import *
 import multiprocessing
+from llms4ol.path import *
 
 
 if __name__ == "__main__":
@@ -13,26 +14,86 @@ if __name__ == "__main__":
     print("args:", args)
 
     #taskB_trainer(args.model,args.kb_name,args.methode)
-    methodes = ["lora","full"]
-    kb_names = ["geonames"]
-    models = ["roberta","llama3","t5"]
-    
-    for method in methodes:
-        for model in models:
-            for kb_name in kb_names:
-                pass
-                #taskB_trainer(model,kb_name,method)
+    methods = ["full"] # "lora","full"
+    kb_names = ["geonames","umls","schema"]# "geonames","umls","schema","go"
+    models = ["llama3","t5"]# "roberta","llama3","t5"
+    dataset_build_methods = [2,3] # 1,2,3,4
 
-    #taskB_trainer("llama3","geonames","full")
-    #train model in multiprocesses
-    for method in methodes:
-        processes = []
-        #Multiprocess
-        for model in models:
-            for kb_name in kb_names:
-                process = multiprocessing.Process(target=taskB_trainer, args=(model,kb_name,method,))
-                processes.append(process)
-                process.start()
-        for process in processes:
-            process.join()
-        print("All workers have finished")
+    # multiprocessing.set_start_method('spawn')
+    for model in models:
+        for kb_name in kb_names:
+            for method in methods:
+                for dataset_build_method in dataset_build_methods:
+                    taskB_trainer(model,kb_name,method,dataset_build_method)
+
+
+    # # code for continuely train model:
+    # for model in models:
+    #     for kb_name in kb_names:
+    #         for method in methods:
+    #             for dataset_build_method in dataset_build_methods:
+    #                 # m3 trained then train the model continuely with m2
+    #                 if dataset_build_method == 2:
+    #                     if model == "roberta":
+    #                         if kb_name == "geonames":
+    #                             path_pattern = f"/home/yxpeng/DATA/Checkpoints/TaskB/GeoNames/Finetune/roberta_Textclf_with_Context_m3_full/checkpoint-*"
+    #                         elif kb_name == "schema":
+    #                             path_pattern = f"/home/yxpeng/DATA/Checkpoints/TaskB/Schema/Finetune/roberta_Textclf_with_Context_m3_full/checkpoint-*"
+    #                         elif kb_name == "umls":
+    #                             path_pattern = f"/home/yxpeng/DATA/Checkpoints/TaskB/UMLS/Finetune/roberta_Textclf_with_Context_m3_full/checkpoint-*"
+    #                         elif kb_name == "go":
+    #                             path_pattern = f"/home/yxpeng/DATA/Checkpoints/TaskB/GO/Finetune/roberta_Textclf_with_Context_m3_full/checkpoint-*"
+    #                         model_path = find_trained_model_path(path_pattern)
+    #                     elif model == "llama3":
+    #                         if kb_name == "geonames":
+    #                             path_pattern = f"/home/yxpeng/DATA/Checkpoints/TaskB/GeoNames/Finetune/llama3_Textclf_with_Context_m3_full/checkpoint-*"
+    #                         elif kb_name == "schema":
+    #                             path_pattern = f"/home/yxpeng/DATA/Checkpoints/TaskB/Schema/Finetune/llama3_Textclf_with_Context_m3_full/checkpoint-*"
+    #                         elif kb_name == "umls":
+    #                             path_pattern = f"/home/yxpeng/DATA/Checkpoints/TaskB/UMLS/Finetune/llama3_Textclf_with_Context_m3_full/checkpoint-*"
+    #                         elif kb_name == "go":
+    #                             path_pattern = f"/home/yxpeng/DATA/Checkpoints/TaskB/GO/Finetune/llama3_Textclf_with_Context_m3_full/checkpoint-*"
+    #                         model_path = find_trained_model_path(path_pattern)
+    #                     elif model == "t5":
+    #                         if kb_name == "geonames":
+    #                             path_pattern = f"/home/yxpeng/DATA/Checkpoints/TaskB/GeoNames/Finetune/flan-t5-xl_Textclf_with_Context_m3_full/checkpoint-*"
+    #                         elif kb_name == "schema":
+    #                             path_pattern = f"/home/yxpeng/DATA/Checkpoints/TaskB/Schema/Finetune/flan-t5-xl_Textclf_with_Context_m3_full/checkpoint-*"
+    #                         elif kb_name == "umls":
+    #                             path_pattern = f"/home/yxpeng/DATA/Checkpoints/TaskB/UMLS/Finetune/flan-t5-xl_Textclf_with_Context_m3_full/checkpoint-*"
+    #                         elif kb_name == "go":
+    #                             path_pattern = f"/home/yxpeng/DATA/Checkpoints/TaskB/GO/Finetune/flan-t5-xl_Textclf_with_Context_m3_full/checkpoint-*"
+    #                         model_path = find_trained_model_path(path_pattern)
+    #                 # m2 trained then train the model continuely with m3
+    #                 if dataset_build_method == 3:
+    #                     if model == "roberta":
+    #                         if kb_name == "geonames":
+    #                             path_pattern = f"/home/yxpeng/DATA/Checkpoints/TaskB/GeoNames/Finetune/roberta_Textclf_with_Context_m2_full/checkpoint-*"
+    #                         elif kb_name == "schema":
+    #                             path_pattern = f"/home/yxpeng/DATA/Checkpoints/TaskB/Schema/Finetune/roberta_Textclf_with_Context_m2_full/checkpoint-*"
+    #                         elif kb_name == "umls":
+    #                             path_pattern = f"/home/yxpeng/DATA/Checkpoints/TaskB/UMLS/Finetune/roberta_Textclf_with_Context_m2_full/checkpoint-*"
+    #                         elif kb_name == "go":
+    #                             path_pattern = f"/home/yxpeng/DATA/Checkpoints/TaskB/GO/Finetune/roberta_Textclf_with_Context_m2_full/checkpoint-*"
+    #                         model_path = find_trained_model_path(path_pattern)
+    #                     elif model == "llama3":
+    #                         if kb_name == "geonames":
+    #                             path_pattern = f"/home/yxpeng/DATA/Checkpoints/TaskB/GeoNames/Finetune/llama3_Textclf_with_Context_m2_full/checkpoint-*"
+    #                         elif kb_name == "schema":
+    #                             path_pattern = f"/home/yxpeng/DATA/Checkpoints/TaskB/Schema/Finetune/llama3_Textclf_with_Context_m2_full/checkpoint-*"
+    #                         elif kb_name == "umls":
+    #                             path_pattern = f"/home/yxpeng/DATA/Checkpoints/TaskB/UMLS/Finetune/llama3_Textclf_with_Context_m2_full/checkpoint-*"
+    #                         elif kb_name == "go":
+    #                             path_pattern = f"/home/yxpeng/DATA/Checkpoints/TaskB/GO/Finetune/llama3_Textclf_with_Context_m2_full/checkpoint-*"
+    #                         model_path = find_trained_model_path(path_pattern)
+    #                     elif model == "t5":
+    #                         if kb_name == "geonames":
+    #                             path_pattern = f"/home/yxpeng/DATA/Checkpoints/TaskB/GeoNames/Finetune/flan-t5-xl_Textclf_with_Context_m2_full/checkpoint-*"
+    #                         elif kb_name == "schema":
+    #                             path_pattern = f"/home/yxpeng/DATA/Checkpoints/TaskB/Schema/Finetune/flan-t5-xl_Textclf_with_Context_m2_full/checkpoint-*"
+    #                         elif kb_name == "umls":
+    #                             path_pattern = f"/home/yxpeng/DATA/Checkpoints/TaskB/UMLS/Finetune/flan-t5-xl_Textclf_with_Context_m2_full/checkpoint-*"
+    #                         elif kb_name == "go":
+    #                             path_pattern = f"/home/yxpeng/DATA/Checkpoints/TaskB/GO/Finetune/flan-t5-xl_Textclf_with_Context_m2_full/checkpoint-*"
+    #                         model_path = find_trained_model_path(path_pattern)
+    #                 taskB_trainer(model,kb_name,method,dataset_build_method,model_path)
