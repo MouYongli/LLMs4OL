@@ -161,7 +161,3 @@ cython_debug/
 /src/assets/LLMs/
 /src/assets/Tuning/
 /src/assets/Datasets/
-/src/llms4ol/Evaluate/After_Trained/
-/src/llms4ol/Evaluate/GPT/
-/src/llms4ol/Evaluate/submission_files/
-/src/llms4ol/Evaluate/target_files/

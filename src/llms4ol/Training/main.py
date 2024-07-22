@@ -14,17 +14,23 @@ if __name__ == "__main__":
     print("args:", args)
 
     #taskB_trainer(args.model,args.kb_name,args.methode)
-    methods = ["full"] # "lora","full"
-    kb_names = ["geonames","umls","schema"]# "geonames","umls","schema","go"
-    models = ["llama3","t5"]# "roberta","llama3","t5"
-    dataset_build_methods = [2,3] # 1,2,3,4
+    methods = ["full"] # "lora","full","continue"
+    kb_names = ["go"]# "geonames","umls","wordnet","go" | "geonames","umls","schema","go"
+    models = ["llama3"]# "roberta","llama3","t5"
+    dataset_build_methods = [2] # 1,2,3,4
 
+
+    #trained_model_path = output_dir="/home/yxpeng/DATA/Checkpoints/TaskA/WordNet/Finetune/llama3_Textclf_with_Context_full/checkpoint-*"
+    #model_path = find_trained_model_path(trained_model_path)
+    #taskA_trainer("llama3","wordnet","full",model_path)
     # multiprocessing.set_start_method('spawn')
     for model in models:
         for kb_name in kb_names:
             for method in methods:
                 for dataset_build_method in dataset_build_methods:
-                    taskB_trainer(model,kb_name,method,dataset_build_method)
+                    taskA_Pretrain_GeoNames()
+                    #taskB_trainer(model,kb_name,method,dataset_build_method)
+                
 
 
     # # code for continuely train model:

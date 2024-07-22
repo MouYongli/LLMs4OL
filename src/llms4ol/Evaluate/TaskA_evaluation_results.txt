@@ -1,0 +1,143 @@
+llama3 on KB WordNet for task A on dataset1 has: 
+
+Accuracy: 
+0.7761065220071508
+llama3 on KB WordNet for task A on dataset2 has: 
+
+Accuracy: 
+0.7770928368881765
+llama3 on KB WordNet for task A on dataset3 has: 
+
+Accuracy: 
+0.061398101343854025
+llama3 on KB WordNet for task A on dataset4 has: 
+
+Accuracy: 
+0.031192208112439897
+llama3 on KB WordNet for task A on dataset5 has: 
+
+Accuracy: 
+0.25286647762298115
+
+
+Prompt Template is: Arroyo Monte de Arriba
+roberta on KB geonames for task A on dataset1 has:
+Accuracy: 
+9.40726785709865e-05
+
+Prompt Template is: 'Arroyo Monte de Arriba' geographically is a ?
+roberta on KB geonames for task A on dataset2 has:
+Accuracy: 
+9.40726785709865e-05
+
+Prompt Template is: What is the geographical type of 'Arroyo Monte de Arriba' ? Please answer with professional terminology.roberta on KB geonames for task A on dataset3 has:
+Accuracy: 
+7.921909774398863e-05
+
+Prompt Template is: What is the geographical type of 'Arroyo Monte de Arriba' ?roberta on KB geonames for task A on dataset4 has:
+Accuracy: 
+9.40726785709865e-05
+
+Prompt Template is: Bis(2,2,2-trifluoroethyl) ((2-{2-amino-6-((4-methoxyphenyl)sulfanyl)-9H-purin-9-yl}ethoxy)methyl)phosphonateroberta on KB umls for task A on dataset1 has:
+Accuracy: 
+0.0001600419018797649
+
+Prompt Template is: 'Bis(2,2,2-trifluoroethyl) ((2-{2-amino-6-((4-methoxyphenyl)sulfanyl)-9H-purin-9-yl}ethoxy)methyl)phosphonate' in medicine is a ?roberta on KB umls for task A on dataset2 has:
+Accuracy: 
+0.0001600419018797649
+
+Prompt Template is: 'Bis(2,2,2-trifluoroethyl) ((2-{2-amino-6-((4-methoxyphenyl)sulfanyl)-9H-purin-9-yl}ethoxy)methyl)phosphonate' in biomedicine is a ?roberta on KB umls for task A on dataset3 has:
+Accuracy: 
+0.0001600419018797649
+
+Prompt Template is: 2\'-5\'-oligoadenylate synthetase 1 domain-containing proteinroberta on KB go for task A on dataset1 has:
+Accuracy: 
+0.0006275743808227412
+
+Prompt Template is: '2\'-5\'-oligoadenylate synthetase 1 domain-containing protein' in medicine is a ?roberta on KB go for task A on dataset2 has:
+Accuracy: 
+0.0006187353050365054
+
+Prompt Template is: '2\'-5\'-oligoadenylate synthetase 1 domain-containing protein' in biomedicine is a ?roberta on KB go for task A on dataset3 has:
+Accuracy: 
+0.0006187353050365054
+
+Prompt Template is: What is the biological type of '2\'-5\'-oligoadenylate synthetase 1 domain-containing protein' in Gene Ontology ?roberta on KB go for task A on dataset4 has:
+Accuracy: 
+0.0006187353050365054
+
+Prompt Template is: The biological type of '2\'-5\'-oligoadenylate synthetase 1 domain-containing protein' is a ?roberta on KB go for task A on dataset5 has:
+Accuracy: 
+0.0004861491682429685
+
+Prompt Template is: Please determine the lexical nature of word 'euphemism'roberta on KB wordnet for task A on dataset1 has:
+Accuracy: 
+0.03735667611885094
+
+Prompt Template is: Please determine the lexical nature of word 'euphemism', please answer with only noun, verb, adj, advroberta on KB wordnet for task A on dataset2 has:
+Accuracy: 
+0.02527431882628529
+
+Prompt Template is: Perform a sentence completion on the following sentence: 'euphemism' part of speech is a ___.
+The answer isroberta on KB wordnet for task A on dataset3 has:
+Accuracy: 
+0.029712735790901244
+
+Prompt Template is: Perform a sentence completion on the following sentence: . 'euphemism' part of speech is a ___.
+The answer isroberta on KB wordnet for task A on dataset4 has:
+Accuracy: 
+0.058562446060904945
+
+Prompt Template is: 'euphemism' part of speech is a ?roberta on KB wordnet for task A on dataset5 has:
+Accuracy: 
+0.17839970410553568
+
+Prompt Template is: . 'euphemism' part of speech is a ?roberta on KB wordnet for task A on dataset6 has:
+Accuracy: 
+0.10467266674885957
+
+Prompt Template is: euphemism roberta on KB wordnet for task A on dataset7 has:
+Accuracy: 
+0.18234496362963876
+
+
+
+------------------------
+
+Prompt Template is: Please determine the lexical nature of word 'malice' 
+llama3 on KB wordnet for task A on dataset1 has:
+Accuracy: 
+0.19072864011835777
+
+Prompt Template is: Please determine the lexical nature of word 'malice', please answer with only noun, verb, adj, adv 
+llama3 on KB wordnet for task A on dataset2 has:
+Accuracy: 
+0.19072864011835777
+
+Prompt Template is: Perform a sentence completion on the following sentence: 'malice' part of speech is a ___.
+The answer is 
+llama3 on KB wordnet for task A on dataset3 has:
+Accuracy: 
+0.19566021452348661
+
+Prompt Template is: Perform a sentence completion on the following sentence: . 'malice' part of speech is a ___.
+The answer is 
+llama3 on KB wordnet for task A on dataset4 has:
+Accuracy: 
+0.2008383676488719
+
+Prompt Template is: 'malice' part of speech is a ? 
+llama3 on KB wordnet for task A on dataset5 has:
+Accuracy: 
+0.19072864011835777
+
+Prompt Template is: . 'malice' part of speech is a ? 
+llama3 on KB wordnet for task A on dataset6 has:
+Accuracy: 
+0.18875601035630626
+
+Prompt Template is: malice 
+llama3 on KB wordnet for task A on dataset7 has:
+Accuracy: 
+0.14289236838860805
+

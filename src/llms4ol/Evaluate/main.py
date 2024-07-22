@@ -14,13 +14,14 @@ if __name__ == "__main__":
     #taskB_evaluater(args.model,args.kb_name,args.methode,args.peft_path,args.trained_model_path)
 
     methodes = ["full"]#"vanilla","lora","full"
-    kb_names = ["geonames","umls","schema"]#"geonames","umls","schema","go"
-    models = ["roberta"]#"roberta","llama3","t5"
+    kb_names = ["wordnet"]# "geonames","umls","go","wordnet"  | "geonames","umls","schema","go"
+    models = ["llama3"]#"roberta","llama3","t5"
     for methode in methodes:
         for model in models:
             for kb_name in kb_names:
-                if methode == "vanilla":
-                    taskB_evaluater(2,model,kb_name,methode)
-                else:
-                    for i in [2,3]:
-                        taskB_evaluater(i,model,kb_name,methode)
+                taskA_vanilla_evaluater(model,kb_name)
+                #if methode == "vanilla":
+                #   taskB_evaluater(2,model,kb_name,methode)
+                #else:
+                #   for i in [2,3]:
+                #        taskB_evaluater(i,model,kb_name,methode)

@@ -12,6 +12,103 @@ def UMLS_Pretrain_dataset_builder(jaon_path):
 def UMLS_TaskA_CausalLM_dataset_builder(json_path):
     pass
     #
+
+def UMLS_MT_TaskA_TextClf_dataset_builder():
+    root_path = find_root_path()
+    json_file1 = root_path + "/src/assets/Datasets/SubTaskA.3-UMLS/medcin_train.json"
+
+    data = []
+    def read_and_merge_json(file_path):
+        with open(file_path, 'r', encoding='utf-8') as f:
+            file_data = json.load(f)
+            data.extend(file_data)
+
+    # read and merge each json file
+    read_and_merge_json(json_file1)
+
+    types = []
+    #de-duplicate
+    for item in data:
+        for a in item["type"]:
+            types.append(a)
+    labels = list(set(types))
+    id2label = {i: label for i, label in enumerate(labels)}
+    label2id = {label: i for i, label in enumerate(labels)}
+    text = []
+    label = []
+    for item in data:
+        for a in item["type"]:
+            text.append(str(item["term"]))
+            label.append(label2id[a])
+    print("UMLS Medcin_Train")
+    print("The total number of data for training is: ",len(text))
+    print("The total number of labels is: ",len(id2label))
+    return id2label,label2id,text,label
+
+def UMLS_NT_TaskA_TextClf_dataset_builder():
+    root_path = find_root_path()
+    json_file2 = root_path + "/src/assets/Datasets/SubTaskA.3-UMLS/nci_train.json"
+
+    data = []
+    def read_and_merge_json(file_path):
+        with open(file_path, 'r', encoding='utf-8') as f:
+            file_data = json.load(f)
+            data.extend(file_data)
+
+    # read and merge each json file
+    read_and_merge_json(json_file2)
+
+    types = []
+    #de-duplicate
+    for item in data:
+        for a in item["type"]:
+            types.append(a)
+    labels = list(set(types))
+    id2label = {i: label for i, label in enumerate(labels)}
+    label2id = {label: i for i, label in enumerate(labels)}
+    text = []
+    label = []
+    for item in data:
+        for a in item["type"]:
+            text.append(str(item["term"]))
+            label.append(label2id[a])
+    print("UMLS Nci_Train")
+    print("The total number of data for training is: ",len(text))
+    print("The total number of labels is: ",len(id2label))
+    return id2label,label2id,text,label
+
+def UMLS_SU_TaskA_TextClf_dataset_builder():
+    root_path = find_root_path()
+    json_file3 = root_path + "/src/assets/Datasets/SubTaskA.3-UMLS/snomedct_us_train.json"
+
+    data = []
+    def read_and_merge_json(file_path):
+        with open(file_path, 'r', encoding='utf-8') as f:
+            file_data = json.load(f)
+            data.extend(file_data)
+
+    # read and merge each json file
+    read_and_merge_json(json_file3)
+
+    types = []
+    #de-duplicate
+    for item in data:
+        for a in item["type"]:
+            types.append(a)
+    labels = list(set(types))
+    id2label = {i: label for i, label in enumerate(labels)}
+    label2id = {label: i for i, label in enumerate(labels)}
+    text = []
+    label = []
+    for item in data:
+        for a in item["type"]:
+            text.append(str(item["term"]))
+            label.append(label2id[a])
+    print("UMLS Snomedct_Us")
+    print("The total number of data for training is: ",len(text))
+    print("The total number of labels is: ",len(id2label))
+    return id2label,label2id,text,label
+
 def combinations(json_path):
     with open(json_path, 'r', encoding='utf-8') as file:
         data = json.load(file)
@@ -84,7 +181,7 @@ def combinations(json_path):
 # the most complex method to build dataset: all combinations relation of types + context
 def m1_UMLS_TaskB_TextClf_train_dataset_builder(json_path):
     root_path = find_root_path()
-    context_filename = root_path + f'/src/assets/Datasets/SubTaskB.3-UMLS/processed/umls_Types_processed.json'
+    context_filename = root_path + f'/src/assets/Datasets/SubTaskB.3-UMLS/umls_Types_processed.json'
     # open collected context file
     with open(context_filename, 'r', encoding='utf-8') as file:
         context_data = json.load(file)
@@ -145,7 +242,7 @@ def m1_UMLS_TaskB_TextClf_train_dataset_builder(json_path):
 # two positiv / negative examples for each given train data (parent-child & child-parent relation) + context
 def m2_UMLS_TaskB_TextClf_train_dataset_builder(json_path):
     root_path = find_root_path()
-    context_filename = root_path + f'/src/assets/Datasets/SubTaskB.3-UMLS/processed/umls_Types_processed.json'
+    context_filename = root_path + f'/src/assets/Datasets/SubTaskB.3-UMLS/umls_Types_processed.json'
     # open collected context file
     with open(context_filename, 'r', encoding='utf-8') as file:
         context_data = json.load(file)

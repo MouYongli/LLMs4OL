@@ -1,0 +1,34 @@
+llama3 after training on KB wordnet for task A has:
+Accuracy: 
+0.3501417827641475
+
+llama3 after training on KB umls for task A has:
+Accuracy: 
+0.0010620962579293487
+
+llama3 after training on KB go for task A has:
+Accuracy: 
+0.0005215054713879117
+
+prompt adjusted:
+
+llama3 after training on KB wordnet for task A has:
+Accuracy: 
+0.7907779558624091
+
+llama3 after training on KB umls for task A has:
+Accuracy: 
+0.0004364779142175406
+
+llama3 after training on KB go for task A has:
+Accuracy: 
+0.0010960453974932381
+
+llama3 after training on KB wordnet for task A has:
+Accuracy: 
+0.12156330908642585
+
+llama3 after training on KB wordnet for task A has:
+Accuracy: 
+0.074220194797189
+

@@ -1,22 +1,121 @@
 from llms4ol.path import find_root_path
 from tqdm import tqdm
 import json
-import re
+import re,csv
 from collections import defaultdict
 import random
 
+def merge_info_files():
+    collected_info = []
+    for num in range(100):
+        file_path = f"/home/yxpeng/Projects/LLMs4OL/src/assets/Datasets/SubTaskA.2-GeoNames/processed/geo_data_part{num}.json"
+        with open(file_path, 'r', encoding='utf-8') as file:
+            data = json.load(file)
+        for item in data:
+            collected_info.append(item)
+    output_path = "/home/yxpeng/Projects/LLMs4OL/src/assets/Datasets/SubTaskA.2-GeoNames/term_info_parts.json"
+    with open(output_path, 'w', encoding='utf-8') as file:
+        json.dump(data, file, ensure_ascii=False, indent=4)
+    print(len(collected_info))
+
+def hierarchy_type():
+
+    csv_path = "/home/yxpeng/Projects/LLMs4OL/src/assets/Datasets/SubTaskB.1-GeoNames/feature_codes.csv"
+    L1_list = set()
+    L1_to_L2_dict = {}
+    L2_to_L1_dict = {}
+    # 打开 CSV 文件
+    with open(csv_path, mode='r', encoding='utf-8') as file:
+        # 创建一个 CSV 读取器
+        csv_reader = csv.reader(file)
+        next(csv_reader)
+        # 遍历每一行
+        for row in csv_reader:
+            # 这里可以添加处理每一行数据的代码
+            # 例如，打印每一行的第一个元素
+            L1=row[3].lower()
+            L2=row[5].lower()
+            list_data = eval(L1)
+            # 使用 join 方法将列表转换为逗号分隔的字符串
+            output_string = ','.join(list_data)
+            L1_list.add(output_string)
+            if output_string not in L1_to_L2_dict:
+                L1_to_L2_dict[output_string] = set()
+            # 将 L2 添加到 L2_dict 中对应的 set
+            L1_to_L2_dict[output_string].add(L2)
+            if L2 not in L2_to_L1_dict:
+                L2_to_L1_dict[L2] = ""
+            L2_to_L1_dict[L2] = output_string
+    print(f"The number of Level 1 Types is {len(L1_to_L2_dict)}, the number of Level 2 Types is {len(L2_to_L1_dict)}")
+    return list(L1_list),L1_to_L2_dict,L2_to_L1_dict
 
 #Process pretrain dataset (text only)
-def Geo_Pretrain_dataset_builder(jaon_path):
-    pass
+def Geo_Pretrain_dataset_builder():
+    training_file = "/home/yxpeng/Projects/LLMs4OL/src/assets/Datasets/SubTaskA.2-GeoNames/geonames_train.json"
+    term_info = "/home/yxpeng/Projects/LLMs4OL/src/assets/Datasets/SubTaskA.2-GeoNames/term_info_parts.json"
+    type_info = "/home/yxpeng/Projects/LLMs4OL/src/assets/Datasets/SubTaskB.1-GeoNames/geoTypes_processed.json"
+    with open(training_file, 'r', encoding='utf-8') as file:
+        training_data = json.load(file)
+    with open(term_info, 'r', encoding='utf-8') as file:
+        term_data = json.load(file)
+    with open(type_info, 'r', encoding='utf-8') as file:
+        type_data = json.load(file)
+    term2info_dict = {item["term"]:item["term_info"] for item in term_data}
+    type2info_dict = {item["term"]:item["term_info"] for item in type_data}
+    L1_list,L1_to_L2_dict,L2_to_L1_dict = hierarchy_type()
+    pretrain_prompt = []
+    for item in training_data[:int(len(training_data)/100)]:
+        term = item["term"]
+        term_info = ""
+        if term in term2info_dict:
+            term_info = term2info_dict[term]
+        L1 = L2_to_L1_dict[item["type"].lower()]
+        L1_info = ""
+        for s_type in L1.split(","):
+            if s_type in type2info_dict:
+                L1_info += type2info_dict[s_type]
+        L2 = item["type"].lower()
+        L2_info = ""
+        for s_type in L2.split(","):
+            if s_type in type2info_dict:
+                L2_info += type2info_dict[s_type]
+        text = f'''
+        The term "{term}" from the GeoNames dataset. {term_info}. It falls under the top-level classification of "{L1}".
+        Given this description, it can be logically inferred that "{term}" should belong to the specific sub-category "{L2}" within this top-level classification.
+        "{L2}" is described as: {L2_info}
+        Consequently, based on this inference, the type of this term is determined to be "{L2}".
+        '''
+        pretrain_prompt.append(text.replace("\n",""))
+    print(len(pretrain_prompt))
+    return pretrain_prompt
+
+
 
 def Geo_TaskA_CausalLM_dataset_builder(json_path):
     root_path = find_root_path()
     typing_file = root_path + "/src/assets/Datasets/SubTaskA.2-GeoNames/geonames_train.json"
 
-def Geo_TaskA_Tokenclf_dataset_builder(json_path):
+def Geo_TaskA_TextClf_dataset_builder():
     root_path = find_root_path()
-    typing_file = root_path + "/src/assets/Datasets/SubTaskA.2-GeoNames/geonames_train.json"
+    json_file = root_path + "/src/assets/Datasets/SubTaskA.2-GeoNames/geonames_train.json"
+    with open(json_file, 'r', encoding='utf-8') as file:
+        data = json.load(file)
+    types = set()
+    #de-duplicate
+    for item in data:
+        types.add(item["type"])
+    labels = list(types)
+    id2label = {i: label for i, label in enumerate(labels)}
+    label2id = {label: i for i, label in enumerate(labels)}
+    text = []
+    label = []
+    for item in data:
+        text.append(str(item["term"]))
+        label.append(label2id[item["type"]])
+    print("GeoNames")
+    print("The total number of data for training is: ",len(text))
+    print("The total number of labels is: ",len(id2label))
+    return id2label,label2id,text,label
 
 
 def combinations(json_path):
@@ -91,7 +190,7 @@ def combinations(json_path):
 # the most complex method to build dataset: all combinations relation of types + context
 def m1_Geo_TaskB_TextClf_train_dataset_builder(json_path):
     root_path = find_root_path()
-    context_filename = root_path + f'/src/assets/Datasets/SubTaskB.1-GeoNames/processed/geoTypes_processed.json'
+    context_filename = root_path + f'/src/assets/Datasets/SubTaskB.1-GeoNames/geoTypes_processed.json'
     #open collected context file
     with open(context_filename, 'r', encoding='utf-8') as file:
         context_data = json.load(file)
@@ -164,7 +263,7 @@ def m1_Geo_TaskB_TextClf_train_dataset_builder(json_path):
 # two positiv / negative examples for each given train data (parent-child & child-parent relation) + context
 def m2_Geo_TaskB_TextClf_train_dataset_builder(json_path):
     root_path = find_root_path()
-    context_filename = root_path + f'/src/assets/Datasets/SubTaskB.1-GeoNames/processed/geoTypes_processed.json'
+    context_filename = root_path + f'/src/assets/Datasets/SubTaskB.1-GeoNames/geoTypes_processed.json'
     #open collected context file
     with open(context_filename, 'r', encoding='utf-8') as file:
         context_data = json.load(file)

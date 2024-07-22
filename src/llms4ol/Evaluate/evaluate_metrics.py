@@ -13,5 +13,10 @@ class EvaluationMetrics:
         clf_report = classification_report(actual, predicted)
         clf_report_dict = classification_report(actual, predicted, output_dict=True)
         return {"accuracy": accuracy, "clf-report": clf_report, "clf-report-dict":clf_report_dict}
+    
+    @staticmethod
+    def evaluate_accuracy(actual, predicted):
+        accuracy = accuracy_score(actual, predicted)
+        return {"accuracy": accuracy}
 
 

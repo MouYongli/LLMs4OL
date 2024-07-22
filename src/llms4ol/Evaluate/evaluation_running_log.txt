@@ -1,0 +1,33 @@
+nohup: ignoring input
+/home/yxpeng/anaconda3/envs/llms4ol/lib/python3.10/site-packages/transformers/utils/generic.py:311: UserWarning: torch.utils._pytree._register_pytree_node is deprecated. Please use torch.utils._pytree.register_pytree_node instead.
+  torch.utils._pytree._register_pytree_node(
+/home/yxpeng/DATA/Checkpoints/TaskA/UMLS/Finetune/1_llama3_Textclf_with_Context_full/checkpoint-7812
+UMLS Medcin_Train
+The total number of data for training is:  281228
+The total number of labels is:  83
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:14<00:42, 14.13s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:24<00:24, 12.07s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:35<00:11, 11.42s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:35<00:00,  7.08s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:35<00:00,  8.95s/it]
+/home/yxpeng/DATA/Checkpoints/TaskA/UMLS/Finetune/2_llama3_Textclf_with_Context_full/checkpoint-4618
+UMLS Nci_Train
+The total number of data for training is:  110830
+The total number of labels is:  122
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:08<00:25,  8.42s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:17<00:17,  8.64s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:25<00:08,  8.41s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:25<00:00,  5.21s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:25<00:00,  6.41s/it]
+/home/yxpeng/DATA/Checkpoints/TaskA/UMLS/Finetune/3_llama3_Textclf_with_Context_full/checkpoint-984
+UMLS Snomedct_Us
+The total number of data for training is:  295271
+The total number of labels is:  121
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:07<00:22,  7.55s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:15<00:15,  7.51s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:22<00:07,  7.36s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:22<00:00,  4.57s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:22<00:00,  5.63s/it]
+/home/yxpeng/DATA/Checkpoints/TaskA/GO/Finetune/1_llama3_Textclf_with_Context_full/checkpoint-2938
+GO Biological_Process
+The total number of data for training is:  376061
+The total number of labels is:  792
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:07<00:22,  7.52s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:15<00:15,  7.72s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:22<00:07,  7.52s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:22<00:00,  4.66s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:22<00:00,  5.73s/it]
+/home/yxpeng/DATA/Checkpoints/TaskA/GO/Finetune/2_llama3_Textclf_with_Context_full/checkpoint-1384
+GO Cellular_Component
+The total number of data for training is:  415202
+The total number of labels is:  323
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:06<00:19,  6.36s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:12<00:12,  6.21s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:18<00:06,  6.03s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:18<00:00,  3.77s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:18<00:00,  4.65s/it]
+/home/yxpeng/DATA/Checkpoints/TaskA/GO/Finetune/3_llama3_Textclf_with_Context_full/checkpoint-1134
+GO Molecular_Function
+The total number of data for training is:  340077
+The total number of labels is:  401
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:07<00:23,  7.69s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:15<00:15,  7.52s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:21<00:07,  7.16s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:22<00:00,  4.46s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:22<00:00,  5.54s/it]

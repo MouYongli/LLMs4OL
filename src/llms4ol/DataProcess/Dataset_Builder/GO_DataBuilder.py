@@ -13,6 +13,99 @@ def GO_TaskA_CausalLM_dataset_builder(json_path):
     pass
     #
 
+def GO_BP_TaskA_TextClf_dataset_builder():
+    root_path = find_root_path()
+    json_file1 = root_path + "/src/assets/Datasets/SubTaskA.4-GO/biological_process_train.json"
+    data = []
+    def read_and_merge_json(file_path):
+        with open(file_path, 'r', encoding='utf-8') as f:
+            file_data = json.load(f)
+            data.extend(file_data)
+
+    # read and merge each json file
+    read_and_merge_json(json_file1)
+    types = set()
+    #de-duplicate
+    for item in data:
+        for a in item["type"]:
+            types.add(a)
+    labels = list(types)
+    print(labels)
+    id2label = {i: label for i, label in enumerate(labels)}
+    label2id = {label: i for i, label in enumerate(labels)}
+    text = []
+    label = []
+    for item in data:
+        for a in item["type"]:
+            text.append(str(item["term"]))
+            label.append(label2id[a])
+    print("GO Biological_Process")
+    print("The total number of data for training is: ",len(text))
+    print("The total number of labels is: ",len(id2label))
+    return id2label,label2id,text,label
+
+#GO_BP_TaskA_TextClf_dataset_builder()
+
+def GO_CC_TaskA_TextClf_dataset_builder():
+    root_path = find_root_path()
+    json_file2 = root_path + "/src/assets/Datasets/SubTaskA.4-GO/cellular_component_train.json"
+    data = []
+    def read_and_merge_json(file_path):
+        with open(file_path, 'r', encoding='utf-8') as f:
+            file_data = json.load(f)
+            data.extend(file_data)
+
+    # read and merge each json file
+    read_and_merge_json(json_file2)
+    types = set()
+    #de-duplicate
+    for item in data:
+        for a in item["type"]:
+            types.add(a)
+    labels = list(types)
+    id2label = {i: label for i, label in enumerate(labels)}
+    label2id = {label: i for i, label in enumerate(labels)}
+    text = []
+    label = []
+    for item in data:
+        for a in item["type"]:
+            text.append(str(item["term"]))
+            label.append(label2id[a])
+    print("GO Cellular_Component")
+    print("The total number of data for training is: ",len(text))
+    print("The total number of labels is: ",len(id2label))
+    return id2label,label2id,text,label
+
+def GO_MF_TaskA_TextClf_dataset_builder():
+    root_path = find_root_path()
+    json_file3 = root_path + "/src/assets/Datasets/SubTaskA.4-GO/molecular_function_train.json"
+    data = []
+    def read_and_merge_json(file_path):
+        with open(file_path, 'r', encoding='utf-8') as f:
+            file_data = json.load(f)
+            data.extend(file_data)
+
+    # read and merge each json file
+    read_and_merge_json(json_file3)
+
+    types = set()
+    #de-duplicate
+    for item in data:
+        for a in item["type"]:
+            types.add(a)
+    labels = list(types)
+    id2label = {i: label for i, label in enumerate(labels)}
+    label2id = {label: i for i, label in enumerate(labels)}
+    text = []
+    label = []
+    for item in data:
+        for a in item["type"]:
+            text.append(str(item["term"]))
+            label.append(label2id[a])
+    print("GO Molecular_Function")
+    print("The total number of data for training is: ",len(text))
+    print("The total number of labels is: ",len(id2label))
+    return id2label,label2id,text,label
 
 def combinations(json_path):
     with open(json_path, 'r', encoding='utf-8') as file:
@@ -78,7 +171,7 @@ def combinations(json_path):
     # calculate spilt point (train: 0.8, eval: 0.2)
     split_point = int(0.8 * len(data))
     # pos : neg == 1 : 10
-    train = pos_labeled_data + neg_labeled_data[:split_point*10]
+    train = pos_labeled_data
     evaluation = pos_labeled_data[split_point:] + neg_labeled_data[split_point*10:]
 
     return train,evaluation
@@ -147,7 +240,7 @@ def m1_GO_TaskB_TextClf_train_dataset_builder(json_path):
 # two positiv / negative examples for each given train data (parent-child & child-parent relation) + context
 def m2_GO_TaskB_TextClf_train_dataset_builder(json_path):
     root_path = find_root_path()
-    context_filename = root_path + f'/src/assets/Datasets/SubTaskB.4-GO/processed/GO_Types_processed.json'
+    context_filename = root_path + f'/src/assets/Datasets/SubTaskB.4-GO/GO_Types_processed.json'
     # open collected context file
     with open(context_filename, 'r', encoding='utf-8') as file:
         context_data = json.load(file)

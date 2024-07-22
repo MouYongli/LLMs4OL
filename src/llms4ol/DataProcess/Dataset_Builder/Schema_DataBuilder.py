@@ -10,10 +10,6 @@ import random
 def Schema_Pretrain_dataset_builder(jaon_path):
     pass
 
-def Schema_TaskA_CausalLM_dataset_builder(json_path):
-    pass
-    #
-
 def combinations(json_path):
     with open(json_path, 'r', encoding='utf-8') as file:
         data = json.load(file)
@@ -86,7 +82,7 @@ def combinations(json_path):
 # the most complex method to build dataset: all combinations relation of types + context
 def m1_Schema_TaskB_TextClf_train_dataset_builder(json_path):
     root_path = find_root_path()
-    context_filename = root_path + f'/src/assets/Datasets/SubTaskB.2-Schema.org/processed/schemaTypes_processed.json'
+    context_filename = root_path + f'/src/assets/Datasets/SubTaskB.2-Schema.org/schemaTypes_processed.json'
     # open collected context file
     with open(context_filename, 'r', encoding='utf-8') as file:
         context_data = json.load(file)
@@ -146,7 +142,7 @@ def m1_Schema_TaskB_TextClf_train_dataset_builder(json_path):
 # two positiv / negative examples for each given train data (parent-child & child-parent relation) + context
 def m2_Schema_TaskB_TextClf_train_dataset_builder(json_path):
     root_path = find_root_path()
-    context_filename = root_path + f'/src/assets/Datasets/SubTaskB.2-Schema.org/processed/schemaTypes_processed.json'
+    context_filename = root_path + f'/src/assets/Datasets/SubTaskB.2-Schema.org/schemaTypes_processed.json'
     # open collected context file
     with open(context_filename, 'r', encoding='utf-8') as file:
         context_data = json.load(file)

@@ -1,0 +1,78 @@
+nohup: ignoring input
+/home/yxpeng/anaconda3/envs/llms4ol/lib/python3.10/site-packages/transformers/utils/generic.py:311: UserWarning: torch.utils._pytree._register_pytree_node is deprecated. Please use torch.utils._pytree.register_pytree_node instead.
+  torch.utils._pytree._register_pytree_node(
+args: Namespace()
+GeoNames
+The total number of data for training is:  8078865
+The total number of labels is:  660
+/home/yxpeng/anaconda3/envs/llms4ol/lib/python3.10/site-packages/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at FacebookAI/roberta-large and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+UMLS
+The total number of data for training is:  687329
+The total number of labels is:  127
+/home/yxpeng/anaconda3/envs/llms4ol/lib/python3.10/site-packages/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at FacebookAI/roberta-large and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+GO
+The total number of data for training is:  1131340
+The total number of labels is:  1516
+/home/yxpeng/anaconda3/envs/llms4ol/lib/python3.10/site-packages/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at FacebookAI/roberta-large and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+WordNet
+The total number of data for training is:  40559
+The total number of labels is:  4
+/home/yxpeng/anaconda3/envs/llms4ol/lib/python3.10/site-packages/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at FacebookAI/roberta-large and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+GeoNames
+The total number of data for training is:  8078865
+The total number of labels is:  660
+/home/yxpeng/anaconda3/envs/llms4ol/lib/python3.10/site-packages/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:02<00:07,  2.65s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:05<00:05,  2.84s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:08<00:02,  2.81s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:08<00:00,  1.80s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:08<00:00,  2.16s/it]
+Some weights of LlamaForSequenceClassification were not initialized from the model checkpoint at meta-llama/Meta-Llama-3-8B and are newly initialized: ['score.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Traceback (most recent call last):
+  File "/home/yxpeng/Projects/LLMs4OL/src/llms4ol/Evaluate/main.py", line 22, in <module>
+    #taskA_evaluater(model, kb_name)
+  File "/home/yxpeng/Projects/LLMs4OL/src/llms4ol/Evaluate/evaluater.py", line 259, in taskA_evaluater
+    logits = model(**inputs).logits
+  File "/home/yxpeng/anaconda3/envs/llms4ol/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/yxpeng/anaconda3/envs/llms4ol/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/yxpeng/anaconda3/envs/llms4ol/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 959, in forward
+    transformer_outputs = self.model(
+  File "/home/yxpeng/anaconda3/envs/llms4ol/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/yxpeng/anaconda3/envs/llms4ol/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/yxpeng/anaconda3/envs/llms4ol/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 708, in forward
+    layer_outputs = decoder_layer(
+  File "/home/yxpeng/anaconda3/envs/llms4ol/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/yxpeng/anaconda3/envs/llms4ol/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/yxpeng/anaconda3/envs/llms4ol/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 437, in forward
+    hidden_states = self.mlp(hidden_states)
+  File "/home/yxpeng/anaconda3/envs/llms4ol/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/yxpeng/anaconda3/envs/llms4ol/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/yxpeng/anaconda3/envs/llms4ol/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 220, in forward
+    down_proj = self.down_proj(self.act_fn(self.gate_proj(x)) * self.up_proj(x))
+  File "/home/yxpeng/anaconda3/envs/llms4ol/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/yxpeng/anaconda3/envs/llms4ol/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/yxpeng/anaconda3/envs/llms4ol/lib/python3.10/site-packages/transformers/activations.py", line 150, in forward
+    return nn.functional.silu(input)
+  File "/home/yxpeng/anaconda3/envs/llms4ol/lib/python3.10/site-packages/torch/nn/functional.py", line 2102, in silu
+    return torch._C._nn.silu(input)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 20.00 MiB. GPU 
