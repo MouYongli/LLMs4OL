@@ -47,6 +47,7 @@ def hierarchy_type():
                 L2_to_L1_dict[L2] = ""
             L2_to_L1_dict[L2] = output_string
     print(f"The number of Level 1 Types is {len(L1_to_L2_dict)}, the number of Level 2 Types is {len(L2_to_L1_dict)}")
+    print([key for key in L2_to_L1_dict])
     return list(L1_list),L1_to_L2_dict,L2_to_L1_dict
 
 #Process pretrain dataset (text only)
@@ -64,7 +65,7 @@ def Geo_Pretrain_dataset_builder():
     type2info_dict = {item["term"]:item["term_info"] for item in type_data}
     L1_list,L1_to_L2_dict,L2_to_L1_dict = hierarchy_type()
     pretrain_prompt = []
-    for item in training_data[:int(len(training_data)/100)]:
+    for item in training_data[int(len(training_data)/2) : int(len(training_data)/2)+30000]: 
         term = item["term"]
         term_info = ""
         if term in term2info_dict:
@@ -79,12 +80,17 @@ def Geo_Pretrain_dataset_builder():
         for s_type in L2.split(","):
             if s_type in type2info_dict:
                 L2_info += type2info_dict[s_type]
+
         text = f'''
-        The term "{term}" from the GeoNames dataset. {term_info}. It falls under the top-level classification of "{L1}".
-        Given this description, it can be logically inferred that "{term}" should belong to the specific sub-category "{L2}" within this top-level classification.
-        "{L2}" is described as: {L2_info}
-        Consequently, based on this inference, the type of this term is determined to be "{L2}".
+        The term "{term}" from the GeoNames dataset. {term_info}. The type of this term is determined to be "{L2}".    
         '''
+        #The term "{term}" from the GeoNames dataset. {term_info}. The type of this term is determined to be "{L2}".    
+        #text = f'''
+        #The term "{term}" from the GeoNames dataset. {term_info}. It falls under the top-level classification of "{L1}".
+        #Given this description, it can be logically inferred that "{term}" should belong to the specific sub-category "{L2}" within this top-level classification.
+        #"{L2}" is described as: {L2_info}
+        #Consequently, based on this inference, the type of this term is determined to be "{L2}".
+        #'''
         pretrain_prompt.append(text.replace("\n",""))
     print(len(pretrain_prompt))
     return pretrain_prompt

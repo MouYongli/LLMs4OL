@@ -6,6 +6,7 @@ import multiprocessing,json
 import time
 import re,os
 from collections import Counter
+import pandas as pd
 
 root_path = find_root_path()
 
@@ -404,7 +405,24 @@ def re_inference(num:int, merged_path:Path, json_files_paths:list[str], re_infer
     return candidates_num
 
 
+def create_dataset():
+    test_file = "/home/yxpeng/Projects/LLMs4OL/src/assets/Datasets/test_datasets/B.2(FS)_Schemaorg_Test.txt"
+    with open(test_file, 'r', encoding='utf-8') as file:
+        # 使用 readlines() 方法将每行内容读取到一个列表中
+        lines = file.readlines()
+    # 去除每行末尾的换行符
+    test_types = list(set(line.strip() for line in lines))
+    return test_types
 
-
-
-
+def test_type_comment():
+    
+    csv_file = "/home/yxpeng/Projects/LLMs4OL/src/assets/Datasets/SubTaskB.2-Schema.org/schemaorg-all-https-types.csv"
+    df = pd.read_csv(csv_file)
+    comments = df.iloc[1:, [1, 2]].values.tolist()
+    output = [{
+        "term": item[0],
+        "term_info": item[1]
+        } for item in comments]
+    output_path = "/home/yxpeng/Projects/LLMs4OL/src/assets/Datasets/SubTaskB.2-Schema.org/schemaTypes_processed_update.json"
+    with open(output_path, 'w', encoding='utf-8') as file:
+        json.dump(output, file, ensure_ascii=False, indent=4)

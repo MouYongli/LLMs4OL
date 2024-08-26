@@ -14,8 +14,8 @@ if __name__ == "__main__":
     print("args:", args)
 
     #taskB_trainer(args.model,args.kb_name,args.methode)
-    methods = ["full"] # "lora","full","continue"
-    kb_names = ["go"]# "geonames","umls","wordnet","go" | "geonames","umls","schema","go"
+    methods = ["continue"] # "lora","full","continue"
+    kb_names = ["schema"]# "geonames","umls","wordnet","go" | "geonames","umls","schema","go"
     models = ["llama3"]# "roberta","llama3","t5"
     dataset_build_methods = [2] # 1,2,3,4
 
@@ -28,8 +28,7 @@ if __name__ == "__main__":
         for kb_name in kb_names:
             for method in methods:
                 for dataset_build_method in dataset_build_methods:
-                    taskA_Pretrain_GeoNames()
-                    #taskB_trainer(model,kb_name,method,dataset_build_method)
+                    taskB_trainer(model,kb_name,method,dataset_build_method)
                 
 
 

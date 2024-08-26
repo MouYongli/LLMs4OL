@@ -22,8 +22,9 @@ def taskA_Pretrain_GeoNames():
     #train as causal LM
     #model_id = "meta-llama/Meta-Llama-3-8B"
     #model_id = "/home/yxpeng/DATA/Checkpoints/TaskA/GeoNames/Pretrain/llama3_pretrain_full/checkpoint-674"
-    model_id = "/home/yxpeng/DATA/Checkpoints/TaskB/GeoNames/Pretrain/llama3_pretrain_final_full/checkpoint-625"
-    output_dir="/home/yxpeng/DATA/Checkpoints/TaskB/GeoNames/Pretrain/llama3_pretrain_final_1_"
+    #model_id = "/home/yxpeng/DATA/Checkpoints/TaskB/GeoNames/Pretrain/llama3_pretrain_final_full/checkpoint-625"
+    model_id = "/home/yxpeng/DATA/Checkpoints/TaskA/GeoNames/Pretrain/llama3_pretrain_final_3/checkpoint-900" #需要被替换
+    output_dir="/home/yxpeng/DATA/Checkpoints/TaskA/GeoNames/Pretrain/llama3_pretrain_final_4"
 
     text = GeoNames_DataBuilder.Geo_Pretrain_dataset_builder()
 
@@ -42,13 +43,13 @@ def taskA_Pretrain_GeoNames():
     data_collator = DataCollatorForLanguageModeling(tokenizer=tokenizer, mlm=False)
 
     #Train
-    model = AutoModelForCausalLM.from_pretrained(model_id, device_map="auto")
+    model = AutoModelForCausalLM.from_pretrained(model_id, device_map="cuda")
     model.config.pad_token_id = model.config.eos_token_id
     ori_p = print_number_of_trainable_model_parameters(model)
 
-    batch_size = 6
+    batch_size = 2
     epochs = 1
-    steps = 128
+    steps = 16
 
     # Without validation 
     training_args = TrainingArguments(
@@ -58,10 +59,10 @@ def taskA_Pretrain_GeoNames():
         num_train_epochs=epochs,
         weight_decay=0.01,
         save_strategy="steps",
-        save_steps=20,
+        save_steps=200,
         disable_tqdm=False,
         logging_steps=10,
-        save_total_limit=2,
+        save_total_limit=1,
         gradient_accumulation_steps=steps,
         fp16=True,
     )
@@ -99,9 +100,9 @@ def taskA_Pretrain(kb_name):
         data = json.load(file)
     text = []
     for item in data:
-        term = item["term"]
-        info = item["term_info"]
-        text.append(f"Type:'{term}', {info}")
+        item_type = item["term"]
+        item_info = item["term_info"]
+        text.append(f"Type:'{item_type}', {item_info}")
 
     def preprocess_function(examples):
         return tokenizer(examples["text"], truncation=True)
@@ -359,8 +360,8 @@ def taskB_trainer(model_name,kb_name,finetune_methode, dataset_build_method, tra
             model_id = "meta-llama/Meta-Llama-3-8B"
             output_dir="/home/yxpeng/DATA/Checkpoints/TaskB/Schema/Finetune/llama3_Textclf_with_Context_"+ method_name
             if finetune_methode == "continue":
-                model_id = "/home/yxpeng/DATA/Checkpoints/TaskB/Schema/Pretrain/llama3_pretrain_full/checkpoint-1054"
-                output_dir="/home/yxpeng/DATA/Checkpoints/TaskB/Schema/Pretrain_Finetune/llama3_Pretrained_Textclf_with_Context_"+ method_name
+                model_id = "/home/yxpeng/DATA/Checkpoints/TaskB/Schema/Pretrain_Finetune/llama3_Pretrained_Textclf_with_Context_m2_/checkpoint-1556"
+                output_dir="/home/yxpeng/DATA/Checkpoints/TaskB/Schema/Pretrain_Finetune/llama3_Pretrained_Textclf_with_Context_update_"+ method_name
         elif model_name == "t5":
             model_id = "google/flan-t5-xl"
             output_dir="/home/yxpeng/DATA/Checkpoints/TaskB/Schema/Finetune/flan-t5-xl_Textclf_with_Context_"+ method_name
@@ -456,8 +457,8 @@ def taskB_trainer(model_name,kb_name,finetune_methode, dataset_build_method, tra
     if model_name == "roberta":
         batch_size = 64
     else:
-        batch_size = 1
-        steps = 20
+        batch_size = 8
+        steps = 8
 
     if finetune_methode == "lora":
         #Task_Type

@@ -84,6 +84,7 @@ def type_definition_from_wiki(type):
             section_text.append(content)
     return section_text[0]
 
+#print(type_definition_from_wiki("monastery"))
 
 def GPT_Inference(task, num, name):
     if task == "A":
